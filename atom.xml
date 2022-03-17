@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>xueyingwei</title>
+  
+  
+  <link href="https://xueyingwei.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://xueyingwei.github.io/"/>
+  <updated>2022-03-17T17:48:31.012Z</updated>
+  <id>https://xueyingwei.github.io/</id>
+  
+  <author>
+    <name>薛英伟</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Axios</title>
+    <link href="https://xueyingwei.github.io/2022/03/17/Axios/"/>
+    <id>https://xueyingwei.github.io/2022/03/17/Axios/</id>
+    <published>2022-03-17T05:07:10.000Z</published>
+    <updated>2022-03-17T17:48:31.012Z</updated>
+    
+    <content type="html"><![CDATA[<p>​ 请求拦截器 request</p><p>​ 响应拦截器 response</p><span id="more"></span><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//创建实例</span><br><span class="line">const service = axios.create(&#123;</span><br><span class="line">baseURL://基准地址</span><br><span class="line">timeout: 5000//超时时间</span><br><span class="line">&#125;)</span><br><span class="line">service.interceptors.request.use()</span><br><span class="line"></span><br><span class="line">service.interceptors.response.use()</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;​ 请求拦截器 request&lt;/p&gt;
+&lt;p&gt;​ 响应拦截器 response&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="网络请求" scheme="https://xueyingwei.github.io/categories/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DOM</title>
+    <link href="https://xueyingwei.github.io/2022/03/17/DOM/"/>
+    <id>https://xueyingwei.github.io/2022/03/17/DOM/</id>
+    <published>2022-03-17T05:07:10.000Z</published>
+    <updated>2022-03-17T17:48:24.058Z</updated>
+    
+    <content type="html"><![CDATA[<span id="more"></span><p>​ 递归遍历 dom 树</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function domshu(arr,ele)&#123;</span><br><span class="line">for(let i =0;i&lt;ele.children.length;i++)&#123;</span><br><span class="line">arr.push(ele.children[i])</span><br><span class="line">domshu(arr,ele.children[i])</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">let box = document.querySelector(&#x27;.box&#x27;)</span><br><span class="line">let arr = []</span><br><span class="line">domshu(arr,box)</span><br></pre></td></tr></table></figure><p>​ 渲染 dom 树</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function addElement(arr,fatherDom)&#123;</span><br><span class="line">for(let i =0;i&lt;arr.length;i++)&#123;</span><br><span class="line">let div = domcument.createElement(&#x27;div&#x27;)</span><br><span class="line">div.inneHTML = `&lt;p&gt; $&#123; arr[i].type || arr[i] &#125; &lt;/p&gt;`</span><br><span class="line">fatherDom.appendChild(div)</span><br><span class="line">if(arr[i].type)&#123;</span><br><span class="line">addElement(arr[i].data,div)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">addElement(arr,document.querySelector(&#x27;.menu&#x27;)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;p&gt;​ 递归遍历 dom 树&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/sp</summary>
+      
+    
+    
+    
+    <category term="JavaScript" scheme="https://xueyingwei.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="DOM" scheme="https://xueyingwei.github.io/tags/DOM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ES5对比ES6</title>
+    <link href="https://xueyingwei.github.io/2022/03/17/ES5%20%E5%AF%B9%E6%AF%94%20ES6/"/>
+    <id>https://xueyingwei.github.io/2022/03/17/ES5%20%E5%AF%B9%E6%AF%94%20ES6/</id>
+    <published>2022-03-17T05:07:10.000Z</published>
+    <updated>2022-03-17T17:48:40.367Z</updated>
+    
+    <content type="html"><![CDATA[<p>​ var let 与 const</p><span id="more"></span><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">console.log(num)//undefined,不会报错</span><br><span class="line">var num =10</span><br><span class="line">console.log(num)//10</span><br><span class="line"></span><br><span class="line">if(1)&#123; var num =10 &#125;</span><br><span class="line">for(var i=1; i&lt;5; i++)&#123; &#125;</span><br><span class="line"></span><br><span class="line">ES6没有预解析,得先声明才能使用,否则报错</span><br><span class="line">有块级作用域,if和for大括号里面声明的变量是局部变量</span><br><span class="line">const定义引用类型变量时,不可以改堆地址,但可以改堆里的数据</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>解构赋值:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">1.对象属性赋值给变量</span><br><span class="line">ES5</span><br><span class="line">let obj =&#123; name:&#x27;张三&#x27;,age:&#x27;18&#x27;&#125;</span><br><span class="line">let name = obj.name</span><br><span class="line">let age = obj.age</span><br><span class="line">ES6</span><br><span class="line">let &#123;name,age&#125; = obj</span><br><span class="line">注意:</span><br><span class="line">let&#123; age= 10 &#125; =obj 相当 let age = obj.age || 10   //10设为默认值</span><br><span class="line">2.变量赋值给对象属性</span><br><span class="line">ES5</span><br><span class="line">let username = admin</span><br><span class="line">let password = password</span><br><span class="line">let user = &#123;</span><br><span class="line">username:username,</span><br><span class="line">password:password</span><br><span class="line">&#125;</span><br><span class="line">ES6</span><br><span class="line">let username = admin</span><br><span class="line">let password = password</span><br><span class="line">let user = &#123;</span><br><span class="line">//前提是属性名和变量名一样</span><br><span class="line">username,</span><br><span class="line">password</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">3.数组解构</span><br><span class="line">let arr = [&#x27;张三&#x27;,20]</span><br><span class="line">let&#123;name,age&#125; = arr//按下标依次赋值</span><br><span class="line">4.函数参数解构</span><br><span class="line">function fn ( &#123;name,age&#125; )&#123;</span><br><span class="line">let &#123;name ,age&#125;= obj</span><br><span class="line">&#125;</span><br><span class="line">注意:fn(1)//无法解构基础类型</span><br><span class="line"></span><br><span class="line">fn( &#123;name:&#x27;张三&#x27;,age:18&#125; )</span><br><span class="line"></span><br><span class="line">原理:let obj = &#123;name:&#x27;张三&#x27;,age:18&#125;</span><br><span class="line"> let &#123;name,age&#125; = obj</span><br><span class="line">由上可得 let &#123;name,age&#125; = &#123;name:&#x27;张三&#x27;,age:18&#125;</span><br></pre></td></tr></table></figure><p>箭头函数</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">箭头函数中的this:谁声明我,我就指向谁(箭头函数没有this)</span><br><span class="line">0级链是全局作用域</span><br><span class="line">对象没有局部作用域,对象的方法是一级链</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;​ var let 与 const&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://xueyingwei.github.io/categories/JavaScript/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>vue存在的问题</title>
+    <link href="https://xueyingwei.github.io/2022/03/17/VUE%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://xueyingwei.github.io/2022/03/17/VUE%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98/</id>
+    <published>2022-03-17T05:07:10.000Z</published>
+    <updated>2022-03-17T17:49:05.743Z</updated>
+    
+    <content type="html"><![CDATA[<span id="more"></span><p>​ 1.vue 插值表达式闪动问题</p><p>​ 原因: vue 先渲染插值表达式,在替换,这样会在卡顿时形成闪动</p><p>​ 解决: 使用 v-cloak 指令</p><p>​ v-cloak 指令的用法:</p><p>​ 1.提供样式[v-cloak]{ display:none; }</p><p>​ 2.在插值表达式所在的标签中添加 v-cloak 指令</p><p>​ 原理: 先通过样式隐藏内容,然后再内存中进行值的替换,替换好之后再显示最后的结果</p><p>​ 最优解: 使用 v-text 指令</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;p&gt;​ 1.vue 插值表达式闪动问题&lt;/p&gt;
+&lt;p&gt;​ 原因: vue 先渲染插值表达式,在替换,这样会在卡顿时形成闪动&lt;/p&gt;
+&lt;p&gt;​ 解决: 使用 v-cloak 指令&lt;/p&gt;
+&lt;p&gt;​ v-cloak 指令的用法:&lt;/</summary>
+      
+    
+    
+    
+    <category term="疑难点" scheme="https://xueyingwei.github.io/categories/%E7%96%91%E9%9A%BE%E7%82%B9/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>vue目录</title>
+    <link href="https://xueyingwei.github.io/2022/03/17/VUE%E7%9B%AE%E5%BD%95/"/>
+    <id>https://xueyingwei.github.io/2022/03/17/VUE%E7%9B%AE%E5%BD%95/</id>
+    <published>2022-03-17T05:07:10.000Z</published>
+    <updated>2022-03-17T17:44:54.498Z</updated>
+    
+    <content type="html"><![CDATA[<span id="more"></span><p>vue 入口文件 main.js</p><p>​ new Vue(Vue 实例)</p><p>​ 挂载路由</p><p>​ 挂载 vuex</p><p>​ 全局注册 element</p><p>​ App.Vue 根页面组件</p><p>​ router-view</p><p>​ layout 布局组件 login 404</p><p>​ navbar</p><p>​ siderbar router-view</p><hr><p>​ permission.js</p><hr><p>​ setting</p><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;p&gt;vue 入口文件 main.js&lt;/p&gt;
+&lt;p&gt;​ new Vue(Vue 实例)&lt;/p&gt;
+&lt;p&gt;​ 挂载路由&lt;/p&gt;
+&lt;p&gt;​ 挂载 vuex&lt;/p&gt;
+&lt;p&gt;​ 全局注册 element&lt;/p&gt;
+&lt;p&gt;​ App.Vue </summary>
+      
+    
+    
+    
+    <category term="VUE" scheme="https://xueyingwei.github.io/categories/VUE/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>组件传值</title>
+    <link href="https://xueyingwei.github.io/2022/03/17/VUE%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/"/>
+    <id>https://xueyingwei.github.io/2022/03/17/VUE%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/</id>
+    <published>2022-03-17T05:07:10.000Z</published>
+    <updated>2022-03-17T17:44:54.803Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="组件传值"><a href="#组件传值" class="headerlink" title="组件传值"></a>组件传值</h3><p>​ 父&#x3D;&gt;子 props</p><p>​ 子&#x3D;&gt;父 $emit</p><p>​ 兄弟&#x3D;&gt;兄弟 eventBus &#x3D;&gt; 公共$emit</p><p>​ 非关系组件 vuex</p><p>​ state 存放共享状态数据</p><p>​ mutaitions 修改 state 只能通过 mutaitions(只能同步操作)</p><p>​ actions 执行异步操作,数据提交给 mutaitions 进行修改</p><p>​ 组件 组件引用 state,组件中可以调 actions</p><span id="more"></span><hr><h3 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">const store = new Vuex.Store(&#123;</span><br><span class="line">state:&#123;</span><br><span class="line">count:0,</span><br><span class="line">list:[1,2,3,4,5,6,7,8,9,10]</span><br><span class="line">&#125;,</span><br><span class="line">mutaitions:&#123;</span><br><span class="line">//参数 state 指的是当前vuex中的state对象</span><br><span class="line">//参数 payload 是载荷 提交mutaition的方法传递的参数可以是任何类型的值</span><br><span class="line">addCount(state,payload)&#123;</span><br><span class="line"> state.count += payload</span><br><span class="line">&#125;</span><br><span class="line">&#125;,</span><br><span class="line">actions:&#123;</span><br><span class="line">//参数 context 执行上下文对象,this.$store</span><br><span class="line">getAsyncCount(context,params)&#123;</span><br><span class="line">//用setTimeout模拟异步操作</span><br><span class="line">setTimeout(function()&#123;</span><br><span class="line">context.commit(&quot;addCount&quot;,params)</span><br><span class="line">&#125;,1000)</span><br><span class="line">&#125;</span><br><span class="line">&#125;,</span><br><span class="line">getters:&#123;</span><br><span class="line">filterList:function(state)&#123;</span><br><span class="line">filterList: state =&gt; state.list.filter(item =&gt; item &gt; 5),</span><br><span class="line">token: state =&gt; state.use.token,</span><br><span class="line">name: state =&gt; state.setting.name,</span><br><span class="line">&#125;</span><br><span class="line">&#125;,</span><br><span class="line">modules:&#123;</span><br><span class="line">        user:&#123;</span><br><span class="line">            state:&#123;</span><br><span class="line">token:&#x27;12345&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        setting:&#123;</span><br><span class="line">        namespaced:ture,</span><br><span class="line">            state:&#123;</span><br><span class="line">name:&#x27;&#x27;</span><br><span class="line">            &#125;,</span><br><span class="line">            mutaitions:&#123;</span><br><span class="line">uppdateName(state)&#123;</span><br><span class="line">state.name = &#x27;vue&#x27;</span><br><span class="line">&#125;</span><br><span class="line">&#125;,</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>​ <strong>state 取值:</strong></p><p>​ 1.直接引用$this.state</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;&#123;&#123;$store.state.count&#125;&#125;&lt;/div&gt;</span><br></pre></td></tr></table></figure><p>​ 2.计算属性 computed</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;&#123;&#123;count&#125;&#125;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">computed:&#123;</span><br><span class="line">count()&#123;</span><br><span class="line">return this.store.state.count</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>​ 3.辅助函数</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;&#123;&#123;count&#125;&#125;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">import &#123;mapState&#125; from &#x27;vuex&#x27;</span><br><span class="line">computed:&#123;</span><br><span class="line">...mapState([&#x27;count&#x27;])     //...是ES6的延展解构运算符</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>​ <strong>mutaitions</strong></p><p>​ 1.直接引用 this.$store</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> //commit 是内置方法,参数(&quot;需要调用的方法&quot;,数值)</span><br><span class="line">this.$store.commit(&quot;addCount&quot;,1)</span><br></pre></td></tr></table></figure><p>​ 2.辅助函数</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;button @click=&quot;addCount(11)&quot;&gt;+11&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">import &#123;mapMutaitions&#125; from &#x27;vuex&#x27;</span><br><span class="line">methods:&#123;</span><br><span class="line">...mapMutaitions([&#x27;addCount&#x27;])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>​ <strong>actions</strong></p><p>​ 1.直接调用</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//dispatch是内置方法,参数(&quot;需要调用的方法&quot;)</span><br><span class="line">&lt;button @click=&quot;text&quot;&gt;+111&lt;/button&gt;</span><br><span class="line">text()&#123;</span><br><span class="line">this.$store.dispatch(&quot;getAsyncCount&quot;,111)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>​ 2.辅助函数</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;button @click=&quot;getAsyncCount(1111)&quot;&gt;</span><br><span class="line">+11</span><br><span class="line">&lt;/button&gt;</span><br><span class="line">import &#123;mapActions&#125; from &#x27;vuex&#x27;</span><br><span class="line">methods:&#123;</span><br><span class="line">...mapActions([&#x27;getAsyncCount&#x27;])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>​ <strong>getters</strong></p><p>​ 1.直接调用</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;&#123;&#123;$store.getters.filterList&#125;&#125;&lt;/div&gt;</span><br></pre></td></tr></table></figure><p>​ 2.计算属性</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;&#123;&#123;filterList&#125;&#125;&lt;/div&gt;</span><br><span class="line">import &#123;mapGetters&#125; from &#x27;vuex&#x27;</span><br><span class="line">computed:&#123;</span><br><span class="line">...mapGetters([&#x27;getAsyncCount&#x27;])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>​ <strong>modules</strong></p><p>​ 1.直接调用</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;&#123;&#123;$store.state.use.token&#125;&#125;&lt;/div&gt;</span><br><span class="line">//加了namespaced:ture</span><br><span class="line">&lt;button @click=&quot;text&quot;&gt;&lt;/button&gt;</span><br><span class="line">text()&#123;</span><br><span class="line">this[&#x27;setting/updateName&#x27;]()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>​ 2.计算属性+根的 getters</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;&#123;&#123;token&#125;&#125;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">import &#123;mapGetters&#125; from &#x27;vuex&#x27;</span><br><span class="line">computed:&#123;</span><br><span class="line">...mapGetters([&#x27;token&#x27;])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//加了namespaced:ture</span><br><span class="line">&lt;button @click=&quot;updateName&quot;&gt;+11&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">import &#123;createNamespacedHelpers&#125; from &#x27;vuex&#x27;</span><br><span class="line">const &#123;mapMutaitions&#125; = createNamespacedHelpers(&#x27;setting&#x27;)</span><br><span class="line">computed:&#123;</span><br><span class="line">...mapGetters([&#x27;updateName&#x27;])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>​ <strong>3.namespaced</strong></p><p>​ &#x2F;&#x2F;模块内的 mutaitions,actions,getters 等方法默认注册在全局,namespaced 可以封装</p>]]></content>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;组件传值&quot;&gt;&lt;a href=&quot;#组件传值&quot; class=&quot;headerlink&quot; title=&quot;组件传值&quot;&gt;&lt;/a&gt;组件传值&lt;/h3&gt;&lt;p&gt;​ 父&amp;#x3D;&amp;gt;子 props&lt;/p&gt;
+&lt;p&gt;​ 子&amp;#x3D;&amp;gt;父 $emit&lt;/p&gt;
+&lt;p&gt;​ 兄弟&amp;#x3D;&amp;gt;兄弟 eventBus &amp;#x3D;&amp;gt; 公共$emit&lt;/p&gt;
+&lt;p&gt;​ 非关系组件 vuex&lt;/p&gt;
+&lt;p&gt;​ state 存放共享状态数据&lt;/p&gt;
+&lt;p&gt;​ mutaitions 修改 state 只能通过 mutaitions(只能同步操作)&lt;/p&gt;
+&lt;p&gt;​ actions 执行异步操作,数据提交给 mutaitions 进行修改&lt;/p&gt;
+&lt;p&gt;​ 组件 组件引用 state,组件中可以调 actions&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="VUE" scheme="https://xueyingwei.github.io/categories/VUE/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Element Ui 表单校验</title>
+    <link href="https://xueyingwei.github.io/2022/03/17/e-%E8%A1%A8%E5%8D%95%E6%A0%A1%E9%AA%8C/"/>
+    <id>https://xueyingwei.github.io/2022/03/17/e-%E8%A1%A8%E5%8D%95%E6%A0%A1%E9%AA%8C/</id>
+    <published>2022-03-17T05:07:10.000Z</published>
+    <updated>2022-03-17T06:24:26.120Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Element-Ui-表单校验"><a href="#Element-Ui-表单校验" class="headerlink" title="Element Ui 表单校验"></a>Element Ui 表单校验</h3><span id="more"></span><p>​ :model&#x3D;”” :rules&#x3D;””</p><p>​ prop&#x3D;””</p><p>​ ref&#x3D;”” v-model&#x3D;””</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-form :model=&quot;&quot; :rules=&quot;&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;el-form-item prop=&quot;&quot;&gt;</span><br><span class="line">&lt;el-form-item/&gt;</span><br><span class="line"></span><br><span class="line">&lt;el-input v-model=&quot;&quot;&gt;</span><br><span class="line">&lt;el-input/&gt;</span><br><span class="line"></span><br><span class="line">&lt;el-form/&gt;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">key:[&#123;</span><br><span class="line"></span><br><span class="line">required:true,</span><br><span class="line"></span><br><span class="line">message:&#x27;不能为空错误提示&#x27;,</span><br><span class="line"></span><br><span class="line">trigger:change/blur&#125;,</span><br><span class="line"></span><br><span class="line">  &#123;trigger:change/blur</span><br><span class="line"></span><br><span class="line">    message:&#x27;正则校验错误提示&#x27;</span><br><span class="line"></span><br><span class="line">    pattern:正则表达式&#125;,</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">trigger:change/blur,</span><br><span class="line"></span><br><span class="line">validator:自定义函数</span><br><span class="line"></span><br><span class="line">&#125;]</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>key(字段名) required(字符必填) message(不能为空)</p><p>change&#x2F;blur(值改变&#x2F;失去焦点) validator(自定义校验)</p><hr><p>​ 自定义校验</p><p>​ const checkMobile &#x3D;functioon(rule,value,callback){</p><p>​ ture callback</p><p>​ Flase callback(new Error(“错误提示”))</p><p>​ }</p><hr><p>​ native</p><p>注册原生事件,而不是使用 el 暴露的事件</p><p>​</p>]]></content>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;Element-Ui-表单校验&quot;&gt;&lt;a href=&quot;#Element-Ui-表单校验&quot; class=&quot;headerlink&quot; title=&quot;Element Ui 表单校验&quot;&gt;&lt;/a&gt;Element Ui 表单校验&lt;/h3&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>js数据类型</title>
+    <link href="https://xueyingwei.github.io/2022/03/17/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
+    <id>https://xueyingwei.github.io/2022/03/17/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</id>
+    <published>2022-03-17T05:07:10.000Z</published>
+    <updated>2022-03-17T17:44:45.666Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念<img src="C:\Users\user\Desktop\js变量png.png" alt="js变量png"></h3><span id="more"></span><p>​ 如图,js 数据类型有 8 种:前 7 种是<strong>基本数据类型</strong>,<span style='color:red;'>Object</span>为<strong>引用数据类型</strong>,<strong>object</strong>又分为<strong>array(数组),regexp(正则),date(日期),math(数学),function(函数)</strong></p><h3 id="检测方法"><a href="#检测方法" class="headerlink" title="检测方法"></a>检测方法</h3><ul><li><p><strong>typeof</strong></p><p>​ typeof 无法判断 Null(返回值为 Object),除了 function 判断正确并返回 function,其他引用数据类型皆返回 Object.</p></li><li><p><strong>instanceof</strong></p><p>​ instanceof 无法正确判断基础数据类型</p></li><li><p><strong>object.prototype.toString</strong></p></li></ul><h3 id="转换方法"><a href="#转换方法" class="headerlink" title="转换方法"></a>转换方法</h3><p>强制转换</p><ul><li></li></ul><p>隐式装换</p><ul><li></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;img src=&quot;C:\Users\user\Desktop\js变量png.png&quot; alt=&quot;js变量png&quot;&gt;&lt;/h3&gt;</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://xueyingwei.github.io/categories/JavaScript/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>js注意事项</title>
+    <link href="https://xueyingwei.github.io/2022/03/17/js%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"/>
+    <id>https://xueyingwei.github.io/2022/03/17/js%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</id>
+    <published>2022-03-17T05:07:10.000Z</published>
+    <updated>2022-03-17T17:49:31.219Z</updated>
+    
+    <content type="html"><![CDATA[<span id="more"></span><p>对象:</p><p>​ 1.super 必须放在子类 this 的代码前面</p><p>​ 2.ES6 中类是没有变量提升的,类要写在实例的代码前面</p><p>​ 3.类里面的共有属性和方法一定要加 t is 使用</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;p&gt;对象:&lt;/p&gt;
+&lt;p&gt;​ 1.super 必须放在子类 this 的代码前面&lt;/p&gt;
+&lt;p&gt;​ 2.ES6 中类是没有变量提升的,类要写在实例的代码前面&lt;/p&gt;
+&lt;p&gt;​ 3.类里面的共有属性和方法一定要加 t is 使用&lt;</summary>
+      
+    
+    
+    
+    <category term="疑难点" scheme="https://xueyingwei.github.io/categories/%E7%96%91%E9%9A%BE%E7%82%B9/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>单例模式</title>
+    <link href="https://xueyingwei.github.io/2022/03/17/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://xueyingwei.github.io/2022/03/17/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</id>
+    <published>2022-03-17T05:07:10.000Z</published>
+    <updated>2022-03-17T17:40:19.341Z</updated>
+    
+    <content type="html"><![CDATA[<p>以一个 layer 弹出层解析单例</p><span id="more"></span><h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><p>​ 一个构造函数一生只能有一个实例</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">function person()&#123;</span><br><span class="line">this.name = &#x27;jack&#x27;</span><br><span class="line">&#125;</span><br><span class="line">const p1 = new person()</span><br><span class="line">const p2 = new person()</span><br><span class="line">console.log()</span><br><span class="line"></span><br><span class="line">//单例核心</span><br><span class="line">let instance = null</span><br><span class="line">function person()&#123;</span><br><span class="line">if(!instance) installce = new person()</span><br><span class="line">return instance</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//单例简例</span><br><span class="line">const singleTon =(function()&#123;</span><br><span class="line">       function person(name,sex)&#123;</span><br><span class="line">       this.name = &#x27;jack&#x27; ,</span><br><span class="line">       this.sex = &#x27;sex&#x27;</span><br><span class="line">       &#125;</span><br><span class="line">       person.prototype.sayHi = function()&#123;</span><br><span class="line">       console.log(&#x27;hello world&#x27;)</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">let installce = null</span><br><span class="line">return function singleTon(...arg)&#123;</span><br><span class="line">if(!installce) installce = new person(...age)</span><br><span class="line">return instance</span><br><span class="line">&#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure><p>单例模式实现弹出层封装</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">const singleTon = (function()&#123;</span><br><span class="line"></span><br><span class="line">  class Tip&#123;</span><br><span class="line">       constructor()&#123;</span><br><span class="line">       this.ele = document.createElement(&#x27;div&#x27;)</span><br><span class="line">       this.ele.className = &#x27;tip&#x27;</span><br><span class="line">       document.body.appendChild(this.ele)</span><br><span class="line"></span><br><span class="line">this.callback = function()&#123;&#125;</span><br><span class="line">this.bindEvent()</span><br><span class="line">&#125;</span><br><span class="line">//1.填充this.ele的内容</span><br><span class="line">setContent(txt)&#123;</span><br><span class="line">//最好是创建节点,自己添加样式</span><br><span class="line">this.ele.innerHTML = `</span><br><span class="line">&lt;div&gt;&lt;/div&gt;</span><br><span class="line">`</span><br><span class="line">&#125;</span><br><span class="line">//2.添加事件,事件委托方式</span><br><span class="line">bindEvent()&#123;</span><br><span class="line">this.ele.addEventListener(&#x27;click&#x27;,e =&gt;&#123;</span><br><span class="line">e = e || window.event</span><br><span class="line">const target = e.target || e.srcElement</span><br><span class="line">if(target.className === &#x27;close&#x27;)&#123;</span><br><span class="line">this.ele.style.display = &#x27;none&#x27;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if(target.className === &#x27;cancel&#x27;)&#123;</span><br><span class="line">this.ele.style.display = &#x27;none&#x27;</span><br><span class="line">this.callback(false)</span><br><span class="line">&#125;</span><br><span class="line">if(target.className === &#x27;ok&#x27;)&#123;</span><br><span class="line">this.ele.style.display = &#x27;none&#x27;</span><br><span class="line">this.callback(ture)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line">&#125;</span><br><span class="line">//3.调整样式</span><br><span class="line">setStyle(val)&#123;</span><br><span class="line">this.ele.querySelector(&#x27;.top&#x27;).style.backgroundColor = val</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">//单例核心代码</span><br><span class="line">       let installce = null</span><br><span class="line">return function singleTon(options=&#123;&#125;,cb)&#123;</span><br><span class="line">if(!installce) installce = new Tip()</span><br><span class="line">installce.setContent(options.txt || &#x27;欢迎来到网络世界&#x27;)</span><br><span class="line">installce.setStyle(options.topBG || &#x27;skyblue&#x27;)</span><br><span class="line"></span><br><span class="line">installce.callback = cb || function()&#123;&#125;</span><br><span class="line">return instance</span><br><span class="line">&#125;</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line">Tip(&#123;</span><br><span class="line">txt: &#x27;你好 世界&#x27;,</span><br><span class="line">topBG: &#x27;green&#x27;</span><br><span class="line">&#125;,function a(res)&#123;</span><br><span class="line">console.log(&#x27;打印结果&#x27;,res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;以一个 layer 弹出层解析单例&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="设计模式" scheme="https://xueyingwei.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>浅拷贝与深拷贝</title>
+    <link href="https://xueyingwei.github.io/2022/03/17/%E6%B5%85%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D(%E9%92%88%E5%AF%B9%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B)/"/>
+    <id>https://xueyingwei.github.io/2022/03/17/%E6%B5%85%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D(%E9%92%88%E5%AF%B9%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B)/</id>
+    <published>2022-03-17T05:07:10.000Z</published>
+    <updated>2022-03-17T17:44:29.433Z</updated>
+    
+    <content type="html"><![CDATA[<p>浅拷贝与深拷贝(针对引用类型)</p><span id="more"></span><p>​ 1.浅拷贝:拷贝的是地址.修改拷贝后的数据,原数据<strong>会</strong>改变</p><p>​ 变量赋值方式: let obj1 &#x3D; obj;</p><p>​</p><p>​ 2.深拷贝:拷贝的是堆中的数据,修改拷贝后的数据,原数据<strong>不会</strong>改变</p><p>​ js 对象转成 json,再转回来</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let obj1 = JSON.parse( json.stringify(obj) );</span><br></pre></td></tr></table></figure><p>​ 递归遍历</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">function kaobei (newObj,obj)&#123;</span><br><span class="line"></span><br><span class="line">for(let key in obj)&#123;</span><br><span class="line"></span><br><span class="line">if( obj[key] instanceof Array )&#123;</span><br><span class="line"></span><br><span class="line">newObj[key] = []</span><br><span class="line">kaobei(newObj[key],obj[key])</span><br><span class="line"></span><br><span class="line">&#125;else if( obj[key] instanceof object )&#123;</span><br><span class="line"></span><br><span class="line">newObj[key] = &#123;&#125;</span><br><span class="line"></span><br><span class="line">kaobei( newObj[key],obj[key] )</span><br><span class="line"></span><br><span class="line">&#125;else&#123;</span><br><span class="line"></span><br><span class="line">newObj[key] = obj[key]</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;浅拷贝与深拷贝(针对引用类型)&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://xueyingwei.github.io/categories/JavaScript/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>发布订阅模式</title>
+    <link href="https://xueyingwei.github.io/2022/03/17/%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://xueyingwei.github.io/2022/03/17/%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F/</id>
+    <published>2022-03-17T05:07:10.000Z</published>
+    <updated>2022-03-17T17:47:24.081Z</updated>
+    
+    <content type="html"><![CDATA[<p>​ 1.</p><p>​ 需要一个构造函数</p><p>​ 属性: 消息队列</p><p>​ {</p><p>​ click:[],</p><p>​ abc:[]</p><p>​ }</p><span id="more"></span><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">class Observer &#123;</span><br><span class="line">constructor()&#123;</span><br><span class="line">this.message = &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">//1.向消息队列里面添加内容</span><br><span class="line">on(type,fn)&#123;</span><br><span class="line">if(!this.message[type])&#123;</span><br><span class="line">this.message[type] = [fn]</span><br><span class="line">&#125;</span><br><span class="line">this.message[type].push(fn)</span><br><span class="line">&#125;</span><br><span class="line">//2.删除消息队列里面的内容</span><br><span class="line">off(type,fn)&#123;</span><br><span class="line">if(!fn)&#123;</span><br><span class="line">delete this.message[type]</span><br><span class="line">return</span><br><span class="line">&#125;</span><br><span class="line">if(!this.message[type])return</span><br><span class="line">this.message[type] = this.message[type].filter(item=&gt;item !== fn)</span><br><span class="line">&#125;</span><br><span class="line">//3.触发消息队列</span><br><span class="line">trigger(type)&#123;</span><br><span class="line">if(!this.message[type])return</span><br><span class="line">this.message[type].forEach(item=&gt;&#123;</span><br><span class="line">item()</span><br><span class="line">&#125;)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">const person1 = new Observer()</span><br><span class="line">//告知你一个行为(type),当行为出现时,给我回复(fn)</span><br><span class="line">person1.on(&#x27;a&#x27;,handlerA)</span><br><span class="line">person1.on(&#x27;a&#x27;,handlerB)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function handlerA ()&#123; console.log(&#x27;handlerA&#x27;) &#125;</span><br><span class="line">   function handlerB ()&#123; console.log(&#x27;handlerB&#x27;) &#125;</span><br><span class="line">   function handlerC ()&#123; console.log(&#x27;handlerC&#x27;) &#125;</span><br><span class="line">   function handlerD ()&#123; console.log(&#x27;handlerD&#x27;) &#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;​ 1.&lt;/p&gt;
+&lt;p&gt;​ 需要一个构造函数&lt;/p&gt;
+&lt;p&gt;​ 属性: 消息队列&lt;/p&gt;
+&lt;p&gt;​ {&lt;/p&gt;
+&lt;p&gt;​ click:[],&lt;/p&gt;
+&lt;p&gt;​ abc:[]&lt;/p&gt;
+&lt;p&gt;​ }&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="设计模式" scheme="https://xueyingwei.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>深-浅拷贝</title>
+    <link href="https://xueyingwei.github.io/2022/03/17/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/"/>
+    <id>https://xueyingwei.github.io/2022/03/17/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/</id>
+    <published>2022-03-17T05:07:10.000Z</published>
+    <updated>2022-03-17T17:44:42.169Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><span id="more"></span><h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">自己创建一个新的对象来接受你要重新复制或引用的对象值.如果对象属性是基本的数据类型,复制的就是基本数据类型的值给新对象;但如果属性是引用数据类型,复制的就是内存中的地址,如果其中一个对象改变了这个内存中的地址,肯定会影响到里一个对象</span><br></pre></td></tr></table></figure><h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p>objec.assign</p><ul><li>它不会拷贝对象的继承属性</li><li>他不会拷贝对象的不可枚举的属性</li><li>可以拷贝 Symbol 类型的属性</li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;浅拷贝&quot;&gt;&lt;a href=&quot;#浅拷贝&quot; class=&quot;headerlink&quot; title=&quot;浅拷贝&quot;&gt;&lt;/a&gt;浅拷贝&lt;/h3&gt;</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://xueyingwei.github.io/categories/JavaScript/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>环境安装</title>
+    <link href="https://xueyingwei.github.io/2022/03/17/%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/"/>
+    <id>https://xueyingwei.github.io/2022/03/17/%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/</id>
+    <published>2022-03-17T05:07:10.000Z</published>
+    <updated>2022-03-17T17:48:03.072Z</updated>
+    
+    <content type="html"><![CDATA[<span id="more"></span><h3 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install xxx</span><br></pre></td></tr></table></figure><p>​ 安装项目到项目目录下，不会将模块依赖写入 devDependencies 或 dependencies。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g xxx</span><br></pre></td></tr></table></figure><p>​ -g 的意思是将模块安装到全局，具体安装到磁盘哪个位置，要看 npm cinfig prefix 的位置</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -save xxx</span><br></pre></td></tr></table></figure><p>​ -save 的意思是将模块安装到项目目下，并在 package 文件的 dependencies 节点写入依赖。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -save-dev xxx</span><br></pre></td></tr></table></figure><p>​ -save-dev 的意思是将模块安装到项目目录下，并在 package 文件的 devDependencies 节点写入依赖。</p><hr><h3 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h3><p>​ webpack 配置 package.json 文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack --mode development</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack --mode production</span><br></pre></td></tr></table></figure><p>dependencies：运行时的依赖，发布后，即生产环境下还需要用的模块</p><p>devDependencies：开发时的依赖。里面的模块是开发时用的，发布时用不到它。</p><hr><h3 id="VUE"><a href="#VUE" class="headerlink" title="VUE"></a>VUE</h3><p>​ 创建项目</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create</span><br></pre></td></tr></table></figure><p>​</p><p>​ 组件使用</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//在main.js新增</span><br><span class="line">import 组件名 from 组件   //导入组件并赋名</span><br><span class="line">vue.use(组件名)//注册,调用install方法</span><br><span class="line">const 实例名 = new 组件名.方法()//实例化</span><br><span class="line">//在main.js的new VUE里加入实例名:实例名</span><br><span class="line">new Vue(&#123;</span><br><span class="line">实例名:实例名//ES6可以省略&quot;:实例名&quot;</span><br><span class="line">&#125;).$mount(&#x27;#app&#x27;)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;h3 id=&quot;NPM&quot;&gt;&lt;a href=&quot;#NPM&quot; class=&quot;headerlink&quot; title=&quot;NPM&quot;&gt;&lt;/a&gt;NPM&lt;/h3&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;</summary>
+      
+    
+    
+    
+    <category term="环境部署安装" scheme="https://xueyingwei.github.io/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E5%AE%89%E8%A3%85/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>策略模式</title>
+    <link href="https://xueyingwei.github.io/2022/03/17/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://xueyingwei.github.io/2022/03/17/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</id>
+    <published>2022-03-17T05:07:10.000Z</published>
+    <updated>2022-03-17T17:44:56.224Z</updated>
+    
+    <content type="html"><![CDATA[<p>​ 一个问题匹配多个解决方案,不一定用哪一个</p><p>​ 而且有可能随时增加多个方案</p><span id="more"></span><p>​ 例子:</p><p>​ 购物车结算,商品打折</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">const calaPrice = (function()&#123;</span><br><span class="line">const sale =&#123;</span><br><span class="line">&#x27;100_10&#x27;: function(price)&#123; return price -= 10 &#125;</span><br><span class="line">&#x27;100_25&#x27;: function(price)&#123; return price -= 25 &#125;</span><br><span class="line">&#x27;80%&#x27;: function(price)&#123; return price *= 0.8&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function calcPrice(price,type)&#123;</span><br><span class="line">if(!sale[type]) return &#x27;该优惠活动已结束&#x27;</span><br><span class="line"></span><br><span class="line">       const result = sale[type](price)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">calcPrice.add = function (type,fn)&#123;</span><br><span class="line">if(sale[type]) return &#x27;改折扣已存在&#x27;</span><br><span class="line"></span><br><span class="line">sale[type] = fn</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">calcPrice.del = function (type,fn)&#123;</span><br><span class="line">delete sale[type]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">return calcPrice</span><br><span class="line">&#125;)()</span><br><span class="line">const res = calcPrice(320,&#x27;100_30&#x27;)</span><br></pre></td></tr></table></figure><p>​</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;​ 一个问题匹配多个解决方案,不一定用哪一个&lt;/p&gt;
+&lt;p&gt;​ 而且有可能随时增加多个方案&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="设计模式" scheme="https://xueyingwei.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>观察者模式</title>
+    <link href="https://xueyingwei.github.io/2022/03/17/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://xueyingwei.github.io/2022/03/17/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</id>
+    <published>2022-03-17T05:07:10.000Z</published>
+    <updated>2022-03-17T17:47:12.226Z</updated>
+    
+    <content type="html"><![CDATA[<p>​ 监控</p><p>​ &#x3D;&gt;教室的学生: 被观察者</p><p>​ &#x3D;&gt; 老师: 观察者</p><p>​ &#x3D;&gt;当被观察者触发了一些条件的时候,观察者就会触发技能</p><p>​ 监控有一个对象的状态,状态发生改变,马上触发技能</p><p>​ &#x3D;&gt;需要两个构造函数:</p><p>​ 1.被观察者</p><p>​ &#x3D;&gt;属性,自己的状态</p><p>​ &#x3D;&gt;队列,记录有谁观察者自己,可以用数组[]</p><p>​ &#x3D;&gt;方法,能设置自己的状态</p><p>​ &#x3D;&gt;方法,添加,删除观察者</p><p>​ 2.观察者</p><p>​ &#x3D;&gt;需要一个身份证明</p><p>​ &#x3D;&gt;需要一个技能</p><span id="more"></span><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">//观察者构造函数</span><br><span class="line">class Observer&#123;</span><br><span class="line">constructor(name,fn = ()=&gt;&#123;&#125;)&#123;</span><br><span class="line">this.name = name</span><br><span class="line">this.fn = fn</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const bzr = new Obsever(&#x27;班主任&#x27;,(state)=&gt;&#123; console.log(&#x27;因为&#x27;+ state +&#x27;,下课跟我去办公室&#x27;) &#125;)</span><br><span class="line">const bzr = new Obsever(&#x27;校长&#x27;,(state)=&gt;&#123; console.log(&#x27;因为&#x27;+ state +&#x27;,骂你班主任&#x27;) &#125;)</span><br><span class="line">//被观察者构造函数</span><br><span class="line">class Subject&#123;</span><br><span class="line">constructor(state)&#123;</span><br><span class="line">this.state = state</span><br><span class="line">this.observers = []</span><br><span class="line">&#125;</span><br><span class="line">//设置自己的状态</span><br><span class="line">setState(val)&#123;</span><br><span class="line">this.state = val</span><br><span class="line">//触发我的观察者技能</span><br><span class="line">this.OBSERVER.forEach(item =&gt;&#123;</span><br><span class="line">item.fn(this.state)</span><br><span class="line">&#125;)</span><br><span class="line">&#125;</span><br><span class="line">addObserver (obs)&#123;</span><br><span class="line">this.observers = this.observers.filter(item =&gt; item !==obs)</span><br><span class="line"></span><br><span class="line">this.observers.push(obs)</span><br><span class="line">&#125;</span><br><span class="line">delObserver(obs)&#123;</span><br><span class="line">this.observers = this.observers.filter(item =&gt; item !==obs)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const xiaoming = new Subject(&#x27;学习&#x27;)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;​ 监控&lt;/p&gt;
+&lt;p&gt;​ &amp;#x3D;&amp;gt;教室的学生: 被观察者&lt;/p&gt;
+&lt;p&gt;​ &amp;#x3D;&amp;gt; 老师: 观察者&lt;/p&gt;
+&lt;p&gt;​ &amp;#x3D;&amp;gt;当被观察者触发了一些条件的时候,观察者就会触发技能&lt;/p&gt;
+&lt;p&gt;​ 监控有一个对象的状态,状态发生改变,马上触发技能&lt;/p&gt;
+&lt;p&gt;​ &amp;#x3D;&amp;gt;需要两个构造函数:&lt;/p&gt;
+&lt;p&gt;​ 1.被观察者&lt;/p&gt;
+&lt;p&gt;​ &amp;#x3D;&amp;gt;属性,自己的状态&lt;/p&gt;
+&lt;p&gt;​ &amp;#x3D;&amp;gt;队列,记录有谁观察者自己,可以用数组[]&lt;/p&gt;
+&lt;p&gt;​ &amp;#x3D;&amp;gt;方法,能设置自己的状态&lt;/p&gt;
+&lt;p&gt;​ &amp;#x3D;&amp;gt;方法,添加,删除观察者&lt;/p&gt;
+&lt;p&gt;​ 2.观察者&lt;/p&gt;
+&lt;p&gt;​ &amp;#x3D;&amp;gt;需要一个身份证明&lt;/p&gt;
+&lt;p&gt;​ &amp;#x3D;&amp;gt;需要一个技能&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="设计模式" scheme="https://xueyingwei.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>路由模式设置</title>
+    <link href="https://xueyingwei.github.io/2022/03/17/%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F%E8%AE%BE%E7%BD%AE/"/>
+    <id>https://xueyingwei.github.io/2022/03/17/%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F%E8%AE%BE%E7%BD%AE/</id>
+    <published>2022-03-17T05:07:10.000Z</published>
+    <updated>2022-03-17T17:47:58.202Z</updated>
+    
+    <content type="html"><![CDATA[<span id="more"></span><p>对应浏览器地址对象: window.location</p><p>哈希路由(hash):#后面是地址,页面由前端浏览器控制,#后面的变化不经过服务器</p><p>history 模式:访问模式,任意地址的变化都会经过后端</p><p>配置 history 模式:</p><p>​ 在 router.index.js 中取消注释 mode:history,</p><p>​ 二级地址 base:’&#x2F;hr&#x2F;‘,</p><h3 id="性能分析"><a href="#性能分析" class="headerlink" title="性能分析"></a>性能分析</h3><p>​ 1.切换到项目目录执行,生成链接地址,得到性能图</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm run preview -- --report</span><br></pre></td></tr></table></figure><p>​ 2.webpack 排除打包</p><p><strong>vue.config.js</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">externals:&#123;</span><br><span class="line">&#x27;element-ui&#x27;: &#x27;ELEMENT&#x27;,</span><br><span class="line">&#x27;xlsx&#x27;: &#x27;XLSX&#x27;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>​ 3.cdn 文件配置(注意顺序)</p><p><strong>vue.config.js</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">let cdn =&#123; css:[],js:[]&#125;</span><br><span class="line">let externals = &#123;&#125;</span><br><span class="line">const isprod = process.env.NODE_ENV === &#x27;production&#x27;</span><br><span class="line">if(isprod)&#123;</span><br><span class="line">externals:&#123;</span><br><span class="line">&#x27;element-ui&#x27;: &#x27;ELEMENT&#x27;,</span><br><span class="line">&#x27;xlsx&#x27;: &#x27;XLSX&#x27;</span><br><span class="line">&#125;</span><br><span class="line">cdn = &#123;</span><br><span class="line">css:[],</span><br><span class="line">js:[]</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>​ 3.注入 cdn 变量</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">config.plugin(&#x27;html&#x27;).tap(args =&gt; &#123;</span><br><span class="line">args[0].cdn = cdn</span><br><span class="line">       return args</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p><strong>public.index.html</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% for(var js of htmlWebpackplugin.options.cdn.css)</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;&lt;%=css%&gt;&quot; /&gt;</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure><p>​ 4.在 nodejs 环境中应用并代理跨域</p><p>​ 第一步,建立 web 服务文件夹 hrserver</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir hrserver</span><br><span class="line">cd hrserver</span><br></pre></td></tr></table></figure><p>​ 第二步,在该文件夹初始化 npm</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></table></figure><p>​ 第三步,安装服务端框架 koa(也可以采用 express 或者 egg)</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i koa koa-static</span><br></pre></td></tr></table></figure><p>​ 第四步,拷贝 dist 到 hrserver.public 下</p><p>​ 第五步,在根目录创建 app.js</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">const Koa = require(&#x27;koa&#x27;)</span><br><span class="line">const app = new Koa()</span><br><span class="line">//koa中间件,需要放在静态化前面</span><br><span class="line">const &#123; historyApiFallback&#125; = require(&#x27;koa2-connect-history-api-fallback&#x27;)</span><br><span class="line">//koa跨域中间件</span><br><span class="line">const proxy = require(&#x27;koa2-proxy-middleware&#x27;)</span><br><span class="line">app.use(proxy(&#123;</span><br><span class="line">target:&#123;</span><br><span class="line">&#x27;/prod-api/(.*)&#x27;:&#123;</span><br><span class="line">target:&#x27;代理地址/api&#x27;,</span><br><span class="line">changeOrigin:true,</span><br><span class="line">pathRewrite:&#123;</span><br><span class="line">&#x27;/prod-api&#x27;:&quot;&quot;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;))</span><br><span class="line">app.use(historyApiFallback(&#123;</span><br><span class="line">//白名单,不处理</span><br><span class="line">whiteList:[&#x27;/prod-api&#x27;]</span><br><span class="line">&#125;))</span><br><span class="line">app.use(server(__dirname + &quot;/public&quot;))</span><br><span class="line">app.listen(3333,()=&gt;&#123;</span><br><span class="line">console.log(&#x27;项目已启动,访问地址http://localhost:3333&#x27;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>​ 5.解决 history 页面访问问题</p><p>​ 1.刷新页面 404</p><p>安装 koa 中间件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i koa2-connect-history-api-fallback</span><br></pre></td></tr></table></figure><p>​ 2.解决生产环境跨域问题</p><p>安装 koa 跨域代理中间件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i koa2-proxy-middleware</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;p&gt;对应浏览器地址对象: window.location&lt;/p&gt;
+&lt;p&gt;哈希路由(hash):#后面是地址,页面由前端浏览器控制,#后面的变化不经过服务器&lt;/p&gt;
+&lt;p&gt;history 模式:访问模式,任意地址的变化都会经过后端</summary>
+      
+    
+    
+    
+    <category term="环境部署安装" scheme="https://xueyingwei.github.io/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E5%AE%89%E8%A3%85/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>防抖和节流</title>
+    <link href="https://xueyingwei.github.io/2022/03/17/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/"/>
+    <id>https://xueyingwei.github.io/2022/03/17/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/</id>
+    <published>2022-03-17T05:07:10.000Z</published>
+    <updated>2022-03-17T17:44:35.157Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h3><p>在间隔时间内多次触发事件以最后一次为准</p><p>应用场景:鼠标移入移出,键盘输入框</p><p>​ 延迟触发</p><p>​ (1)声明一个变量存储定时器</p><p>​ (2)每次触发事件的时候,先不触发,开启定时器,间隔时间之后触发</p><p>​ (3)如果在间隔时间内,与用户触发了其他事件,则结束上一次的定时器,以最后一次为准</p><span id="more"></span><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">//获取元素</span><br><span class="line">let liList = document.queryySelectorAll(&#x27;#box</span><br><span class="line"> li&#x27;)</span><br><span class="line">let box = document.querySelector(&#x27;#box&#x27;)</span><br><span class="line"></span><br><span class="line">//1.声明变量存储定时器id</span><br><span class="line">let timeID = null</span><br><span class="line">for(let i=0; i&lt;liList.length;i++)&#123;</span><br><span class="line">liList[i].onmouseenter = function()&#123;</span><br><span class="line">//3.清除上一次定时器</span><br><span class="line">clearTimeout(timeID)</span><br><span class="line">//2.每一次触发事件,先开启定时器</span><br><span class="line">timeID = setTimeout(function()&#123;</span><br><span class="line">//排他思想</span><br><span class="line">               for(let j=0;j&lt;liList.length;j++)&#123;</span><br><span class="line">                   if(i===j)&#123;</span><br><span class="line">                       liList[j].style.width  = &#x27;800px&#x27;</span><br><span class="line">                   &#125;else&#123;</span><br><span class="line">                       liList[i].style.width = &#x27;100px&#x27;</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;</span><br><span class="line">&#125;,300)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h3><p>间隔时间内事件只会触发一次</p><p>应用场景:高频事件 鼠标移动 滚动条</p><p>​ 合并触发</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let time = null</span><br><span class="line">let i =1</span><br><span class="line">window.onmousemove = function()&#123;</span><br><span class="line">let currentTime = Date.now()</span><br><span class="line">if(currentTime - time &gt;= 300)&#123;</span><br><span class="line">i++</span><br><span class="line">time = currentTime</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;防抖&quot;&gt;&lt;a href=&quot;#防抖&quot; class=&quot;headerlink&quot; title=&quot;防抖&quot;&gt;&lt;/a&gt;防抖&lt;/h3&gt;&lt;p&gt;在间隔时间内多次触发事件以最后一次为准&lt;/p&gt;
+&lt;p&gt;应用场景:鼠标移入移出,键盘输入框&lt;/p&gt;
+&lt;p&gt;​ 延迟触发&lt;/p&gt;
+&lt;p&gt;​ (1)声明一个变量存储定时器&lt;/p&gt;
+&lt;p&gt;​ (2)每次触发事件的时候,先不触发,开启定时器,间隔时间之后触发&lt;/p&gt;
+&lt;p&gt;​ (3)如果在间隔时间内,与用户触发了其他事件,则结束上一次的定时器,以最后一次为准&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="优化技巧" scheme="https://xueyingwei.github.io/categories/%E4%BC%98%E5%8C%96%E6%8A%80%E5%B7%A7/"/>
+    
+    
+  </entry>
+  
+</feed>
