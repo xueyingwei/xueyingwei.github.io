@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>发布订阅模式 | XUEYINGWEI</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><meta name="generator" content="Hexo 5.4.1"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">发布订阅模式</h1><a id="logo" href="/.">XUEYINGWEI</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">发布订阅模式</h1><div class="post-meta">2022-03-17<span> | </span><span class="category"><a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><a class="disqus-comment-count" data-disqus-identifier="2022/03/17/发布订阅模式/" href="/2022/03/17/%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F/#disqus_thread"></a><div class="post-content"><p>​ 1.</p>
+<p>​ 需要一个构造函数</p>
+<p>​ 属性: 消息队列</p>
+<p>​ {</p>
+<p>​ click:[],</p>
+<p>​ abc:[]</p>
+<p>​ }</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">class Observer &#123;</span><br><span class="line">	constructor()&#123;</span><br><span class="line">		this.message = &#123;&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//1.向消息队列里面添加内容</span><br><span class="line">	on(type,fn)&#123;</span><br><span class="line">		if(!this.message[type])&#123;</span><br><span class="line">			this.message[type] = [fn]</span><br><span class="line">		&#125;</span><br><span class="line">		this.message[type].push(fn)</span><br><span class="line">	&#125;</span><br><span class="line">	//2.删除消息队列里面的内容</span><br><span class="line">	off(type,fn)&#123;</span><br><span class="line">		if(!fn)&#123;</span><br><span class="line">			delete this.message[type]</span><br><span class="line">			return</span><br><span class="line">		&#125;</span><br><span class="line">		if(!this.message[type])	return</span><br><span class="line">		this.message[type] = this.message[type].filter(item=&gt;item !== fn)</span><br><span class="line">	&#125;</span><br><span class="line">	//3.触发消息队列</span><br><span class="line">	trigger(type)&#123;</span><br><span class="line">		if(!this.message[type])	return</span><br><span class="line">		this.message[type].forEach(item=&gt;&#123;</span><br><span class="line">			item()</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">const person1 = new Observer()</span><br><span class="line">//告知你一个行为(type),当行为出现时,给我回复(fn)</span><br><span class="line">person1.on(&#x27;a&#x27;,handlerA)</span><br><span class="line">person1.on(&#x27;a&#x27;,handlerB)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function handlerA ()&#123; console.log(&#x27;handlerA&#x27;) &#125;</span><br><span class="line">   function handlerB ()&#123; console.log(&#x27;handlerB&#x27;) &#125;</span><br><span class="line">   function handlerC ()&#123; console.log(&#x27;handlerC&#x27;) &#125;</span><br><span class="line">   function handlerD ()&#123; console.log(&#x27;handlerD&#x27;) &#125;</span><br></pre></td></tr></table></figure>
+</div><div class="tags"></div><div class="post-nav"><a class="pre" href="/2022/03/17/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">单例模式</a><a class="next" href="/2022/03/17/%E6%B5%85%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D(%E9%92%88%E5%AF%B9%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B)/">浅拷贝与深拷贝</a></div><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukkaw/disqusjs/dist/disqusjs.css?v=1.0.0"><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/sukkaw/disqusjs/dist/disqus.js?v=1.0.0"></script><script type="text/javascript" id="disqus-count-script">$(function() {
+     var xhr = new XMLHttpRequest();
+     xhr.open('GET', '//disqus.com/next/config.json', true);
+     xhr.timeout = 2500;
+     xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4 && xhr.status === 200) {
+         $('.post-meta .post-comments-count').show();
+         var s = document.createElement('script');
+         s.id = 'dsq-count-scr';
+         s.src = 'https://xueyingwei.disqus.com/count.js';
+         s.async = true;
+         (document.head || document.body).appendChild(s);
+       }
+     };
+     xhr.ontimeout = function () { xhr.abort(); };
+     xhr.send(null);
+   });</script><div class="comments" id="disqus_thread"><script type="text/javascript">// Load comments with DisqusJS
+function loadComments() {
+  window.dsqjs = new DisqusJS({
+    shortname: 'xueyingwei',
+    siteName: 'XUEYINGWEI',
+    identifier: '2022/03/17/发布订阅模式/',
+    url: 'http://example.com/2022/03/17/发布订阅模式/',
+    title: '发布订阅模式',
+    api: '',
+    apikey: '',
+    admin: '',
+    adminLabel: ''
+  });
+}
+// Lazy load {# Credit: https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/comments/disqus.swig #}
+(function () {
+  var offsetTop = document.getElementById('disqus_thread').offsetTop - window.innerHeight;
+  if (offsetTop <= 0) {
+    // Load directly when there's no scrollbar
+    window.addEventListener('load', loadComments, false);
+  } else {
+    var disqusScroll = function () {
+      // offsetTop may changes because of manually resizing browser window or lazy loading images
+      var offsetTop = document.getElementById('disqus_thread').offsetTop - window.innerHeight;
+      var scrollTop = window.scrollY;
+
+      // Pre-load comments a bit? (margin or anything else)
+      if (offsetTop - scrollTop < 60) {
+        window.removeEventListener('scroll', disqusScroll);
+        loadComments();
+      }
+    };
+    window.addEventListener('scroll', disqusScroll);
+  }
+})();
+// Scroll to comments automatically if #comment-xxx anchor specified
+window.addEventListener('load', function () {
+  // I don't know why, it just works.
+  window.setTimeout(function () {
+    if (location.hash.indexOf('#comment-') !== -1) {
+      document.getElementById('disqus_thread').scrollIntoView(true);
+    }
+  }, 100);
+}, false);
+</script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://example.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/VUE/">VUE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BC%98%E5%8C%96%E6%8A%80%E5%B7%A7/">优化技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E5%AE%89%E8%A3%85/">环境部署安装</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%96%91%E9%9A%BE%E7%82%B9/">疑难点</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">网络请求</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/DOM/" style="font-size: 15px;">DOM</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/03/20/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/19/HTTP-1/">HTTP</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/17/Axios/">Axios</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/17/ES5%20%E5%AF%B9%E6%AF%94%20ES6/">ES5对比ES6</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/17/DOM/">DOM</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/17/VUE%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98/">vue存在的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/17/VUE%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/">组件传值</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/17/VUE%E7%9B%AE%E5%BD%95/">vue目录</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/17/e-%E8%A1%A8%E5%8D%95%E6%A0%A1%E9%AA%8C/">Element Ui 表单校验</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/17/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">js数据类型</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//xueyingwei.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://github.com/xueyingwei" title="GitHub" target="_blank">GitHub</a><ul></ul><a href="https://github.com/xueyingwei" title="Mini-Vue3" target="_blank">Mini-Vue3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2022 <a href="/." rel="nofollow">XUEYINGWEI.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
