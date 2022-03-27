@@ -1,0 +1,132 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>网络请求过程 | XUEYINGWEI</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><meta name="generator" content="Hexo 5.4.1"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">网络请求过程</h1><a id="logo" href="/.">XUEYINGWEI</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">网络请求过程</h1><div class="post-meta">2022-03-20</div><a class="disqus-comment-count" data-disqus-identifier="2022/03/20/网络请求过程/" href="/2022/03/20/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E8%BF%87%E7%A8%8B/#disqus_thread"></a><div class="post-content"><h4 id="页面的请求过程"><a href="#页面的请求过程" class="headerlink" title="页面的请求过程"></a><strong>页面的请求过程</strong></h4><p>​        当我们打开某个网站的页面，浏览器就会发起网络请求获取该页面的资源，我们也可以从控制台看到以下的请求信息：</p>
+<p><img src="/2022/03/20/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E8%BF%87%E7%A8%8B/network.PNG" alt="network"></p>
+<p><img src="/2022/03/20/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E8%BF%87%E7%A8%8B/innetwork.PNG" alt="innetwork"></p>
+<p>​        在 Network 面板里，我们能看到所有浏览器发起的网络请求，包括页面、图片、CSS 文件、XHR 请求等，还能看到请求的状态（200 成功、404 找不到、缓存、重定向等等）、耗时、请求头和内容、返回头和内容等。</p>
+<p>​        图中第一个就是网站页面的请求，返回<html>页面。</html></p>
+<p>​        接下来，浏览器会加载页面，同时页面中涉及的外部资源也会根据需要，在特定的时机触发请求下载，包括我们看到的 PNG 图片、JavaScript 文件（这里没有 CSS 样式，是因为样式被直出在<html>页面内容里了）。</html></p>
+<p>​        回到前面的问题，实际上当我们在浏览器输入网页地址，按下回车键后，浏览器的处理过程如下：</p>
+<p>​            –&gt;DNS 域名解析（此处涉及 DNS 的寻址过程），找到网页的存放服务器；</p>
+<p>​            –&gt;浏览器与服务器建立 TCP 连接；</p>
+<p>​            –&gt;浏览器发起 HTTP 请求；</p>
+<p>​            –&gt;服务器响应 HTTP 请求，返回该页面的 HTML 内容；</p>
+<p>​            –&gt;浏览器解析 HTML 代码，并请求 HTML 代码中的资源（如 JavaScript、CSS、图片等，此处可能涉及 HTTP 缓存）；</p>
+<p>​            –&gt;浏览器对页面进行渲染呈现给用户（此处涉及浏览器的渲染原理）。</p>
+<p>首先我们来看 DNS 解析过程。</p>
+<h4 id="DNS-解析"><a href="#DNS-解析" class="headerlink" title="DNS 解析"></a>DNS 解析</h4><p>​        DNS 的全称是 Domain Name System，又称域名系统，它负责把<a target="_blank" rel="noopener" href="http://www.qq.com这样的域名地址翻译成一个/">www.qq.com这样的域名地址翻译成一个</a> IP（比如14.18.180.206），而客户端与服务器建立 TCP 连接需要通过 IP 通信。</p>
+<p>​        让客户端和服务器连接并不是靠域名进行，在网络中每个终端之间实现连接和通信是通过一个唯一的 IP 地址来完成。在建立 TCP 连接前，我们需要找到建立连接的服务器，DNS 的解析过程可以让用户通过域名找到存放文件的服务器。</p>
+<p>​        DNS 解析过程会进行递归查询，分别依次尝试从以下途径，按顺序地获取该域名对应的 IP 地址。</p>
+<p>​            –&gt;浏览器缓存</p>
+<p>​            –&gt;系统缓存（用户操作系统 Hosts 文件 DNS 缓存）</p>
+<p>​            –&gt;路由器缓存</p>
+<p>​            –&gt;互联网服务提供商 DNS 缓存（联通、移动、电信等互联网服务提供商的 DNS 缓存服务器）</p>
+<p>​            –&gt;根域名服务器</p>
+<p>​            –&gt;顶级域名服务器</p>
+<p>​            –&gt;主域名服务器</p>
+<p>​        DNS 解析过程会根据上述步骤进行递归查询，如果当前步骤没查到，则自动跳转到到下一步骤通过下一个 DNS 服务器进行查找。如果最终依然没找到，浏览器便会将页面响应为打开失败。</p>
+<p>​        除此之外，我们在前后端联调过程中也常常需要配置 HOST，这个过程便是修改了浏览器缓存或是系统缓存。通过将特定域名指向我们自身的服务器 IP 地址，便可以实现通过域名访问本地环境、测试环境、预发布环境的服务器资源。</p>
+<p>那为什么需要配置域名 HOST，而不直接使用 IP 地址进行访问呢？这是因为浏览器的同源策略会导致跨域问题。</p>
+<p>​        同源策略要求，只有当请求的协议、域名和端口都相同的情况下，我们才可以访问当前页面的 Cookie/LocalStorage/IndexDB、获取和操作 DOM 节点，以及发送 Ajax 请求。通过同源策略的限制，可以避免恶意的攻击者盗取用户信息，从而可以保证用户信息的安全。</p>
+<p>​        对于非同源的请求，我们常常称为跨域请求，需要进行跨域处理。常见的跨域解决方案有这几种。</p>
+<p>​            –&gt;使用document.domain + iframe：只有在主域相同的时候才能使用该方法。</p>
+<p>​            –&gt;动态创建 script(JSONP)：通过指定回调函数以及函数的传参数据，让页面执行相应的脚本内容。</p>
+<p>​            –&gt;使用location.hash + iframe：利用location.hash来进行传值。</p>
+<p>​            –&gt;使用window.name + iframe：原理是window.name值在不同的页面（甚至不同域名）加载后依旧存在。</p>
+<p>​            –&gt;使用window.postMessage()实现跨域通信。</p>
+<p>​            –&gt;使用跨域资源共享 CORS（Cross-origin resource sharing）。</p>
+<p>​            –&gt;使用 Websockets。</p>
+<p>​        其中，CORS 作为现在的主流解决方案，它允许浏览器向跨源服务器，发出 XMLHttpRequest 请求，从而克服了 Ajax 只能同源使用的限制。实现 CORS 通信的关键是服务器，只要服务端实现了 CORS 接口，就可以进行跨源通信。</p>
+<p>​        DNS 解析完成后，浏览器获得了服务端的 IP 地址，接下来便可以向服务端发起 HTTP 请求。目前大多数 HTTP 请求都建立在 TCP 连接上，因此客户端和服务端会先建立起 TCP 连接。</p>
+<h4 id="TCP-连接的建立"><a href="#TCP-连接的建立" class="headerlink" title="TCP 连接的建立"></a>TCP 连接的建立</h4><p>​        TCP 连接的建立过程比较偏通信底层，在前端日常开发过程中不容易接触到。但有时候我们需要优化应用的加载耗时、请求耗时或是定位一些偏底层的问题（请求异常、HTTP 连接无法建立等），都会或多或少依赖这些偏底层的知识。</p>
+<p>​            TCP 协议提供可靠传输服务，UDP 协议则可以更快地进行通信；</p>
+<p>​            三次握手：指 TCP 连接的建立过程，该过程中客户端和服务端总共需要发送三个包，从而确认连接存在。</p>
+<p>​            四次挥手：指 TCP 连接的断开过程，该过程中需要客户端和服务端总共发送四个包以，从而确认连接关闭。</p>
+<p>​        当客户端和服务端建立起 TCP 连接之后，HTTP 服务器会监听客户端发起的请求，此时客户端会发起 HTTP 请求。</p>
+<h4 id="HTTP-请求与-TCP-协议"><a href="#HTTP-请求与-TCP-协议" class="headerlink" title="HTTP 请求与 TCP 协议"></a>HTTP 请求与 TCP 协议</h4><p>​        由客户端发起的 HTTP 请求，服务器收到后会进行回复，回复内容通常包括 HTTP 状态、响应消息等，更具体的会在下一讲 HTTP 协议中进行介绍。</p>
+<p>​        前面说过，目前大多数 HTTP 请求都是基于 TCP 协议。TCP 协议的目的是提供可靠的数据传输，它用来确保可靠传输的途径主要包括两个：</p>
+<p>​            乱序重建：通过对数据包编号来对其排序，从而使得另一端接收数据时，可以重新根据编号还原顺序。</p>
+<p>​            丢包重试：可通过发送方是否得到响应，来检测出丢失的数据并重传这些数据。</p>
+<p>​        通过以上方式，TCP 在传输过程中不会丢失或破坏任何数据，这也是即使出现网络故障也不会损坏文件下载的原因。</p>
+<p>​        因此，目前大多数 HTTP 连接基于 TCP 协议。不过，在 HTTP/3 中底层支撑是 QUIC 协议，该协议使用的是 UDP 协议。因为 UDP 协议丢弃了 TCP 协议中所有的错误检查内容，因此可以更快地进行通信，更常用于直播和在线游戏的应用。</p>
+<p>​        也就是说，HTTP/3 基于 UDP 协议实现了数据的快速传输，同时通过 QUIC 协议保证了数据的可靠传输，最终实现了又快又可靠的通信。</p>
+<p>​        除了以上的内容，其实我们还可以去了解关于 TCP/IP 协议的分层模型、IP 寻址过程，以及 IP 协议又是如何将数据包准确无误地传递这些内容，也需要关注 HTTP/2、HTTP/3、HTTPS 这些协议的设计变更了什么、又解决了什么。</p>
+<p>​        或许这些内容对于大多数前端开发来说，都很少会直接接触。但它就像乘法口诀在高考数学题中的角色，基本上所有题目中都会使用到，但我们很少会认为自己是因为掌握了乘法口诀才能顺利解答题目。</p>
+<p>​        同样的，我们对网络请求的认知也常常忽略了底层 TCP/IP 知识，基本上围绕着“前端发起了请求，后台就能收到”“请求没有按预期结果返回，要么是请求包内容有误，要么后台服务异常”这样的理解去进行处理。</p>
+<p>​        但如果某一天，我们的应用整体请求耗时突然变长，这个过程中前端和后台都没有时间上能关联的发布单，我们到底应该如何进行定位呢？如果我们对一个网络请求的完整流程不够了解，又怎么定位到底是哪个步骤出现问题了呢？甚至我们都不会想到，将 HTTP 切换到 HTTPS 也可能会影响到请求耗时。</p>
+<p>​        下面，我们就来看一下 HTTP 请求在前端开发过程中是如何进行编程实现的，这就不得不提到 Ajax 请求了。</p>
+<h4 id="Ajax-请求"><a href="#Ajax-请求" class="headerlink" title="Ajax 请求"></a>Ajax 请求</h4><p>​        Ajax 请求这个词会频繁出现在我们的工作对话内容中，但它并不是 JavaScript 的规范，而是 Jesse James Garrett 提出的新术语：Asynchronous JavaScript and XML，意思是用 JavaScript 执行异步网络请求。</p>
+<h4 id="网络请求的发展"><a href="#网络请求的发展" class="headerlink" title="网络请求的发展"></a>网络请求的发展</h4><p>​        对于浏览器来说，网络请求是用来从服务端获取需要的信息，然后解析协议和内容，来进行页面渲染或者是信息获取的过程。</p>
+<p>​        在很久以前，我们的网络请求除了静态资源（HTML/CSS/JavaScript 等）文件的获取，主要用于表单的提交。我们在完成表单内容的填写之后，点击提交按钮，接下来表单开始提交，浏览器就会刷新页面，然后在新页面里告诉你操作是成功了还是失败了。</p>
+<p>​        除了页面跳转刷新会影响用户体验，在表单提交过程中，使用同步请求会阻塞进程。此时用户无法继续操作页面，导致页面呈现假死状态，使得用户体验变得糟糕。</p>
+<p>​        为了避免这种情况，我们开始使用异步请求 + 回调的方式，来进行请求处理，这就是 Ajax。</p>
+<p>​        随着时间发展，Ajax 的应用越来越广，如今使用 Ajax 已经是前端开发的基本操作。但 Ajax 是一种解决方案，在前端中的具体实现依赖使用XMLHttpRequest相关 API。页面开始支持局部更新、动态加载，甚至还有懒加载、首屏加载等等，都是以XMLHttpRequest为前提。</p>
+<h4 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h4><p>​        XMLHttpRequest让发送一个 HTTP 请求变得非常容易，我们只需要简单的创建一个请求对象实例，并对它进行操作：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">var request = new XMLHttpRequest(); // 新建XMLHttpRequest对象</span><br><span class="line"></span><br><span class="line">request.onreadystatechange = function () &#123;</span><br><span class="line">  // 状态发生变化时，函数被回调</span><br><span class="line">  if (request.readyState == 4) &#123;</span><br><span class="line">    // 成功完成</span><br><span class="line">    // 判断响应结果:</span><br><span class="line">    if (request.status == 200) &#123;</span><br><span class="line">      // 成功，通过responseText拿到响应的文本</span><br><span class="line">      console.log(request.responseText);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      // 失败，根据响应码判断失败原因:</span><br><span class="line">      console.log(request.status);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 发送请求</span><br><span class="line">// open的参数：</span><br><span class="line">// 一：请求方法，包括get/post等</span><br><span class="line">// 二：请求地址</span><br><span class="line">// 三：表示是否异步请求，若为false则是同步请求，会阻塞进程</span><br><span class="line">request.open(&quot;GET&quot;, &quot;/api/categories&quot;, true);</span><br><span class="line">request.send();</span><br></pre></td></tr></table></figure>
+
+<p>​        上面是处理一个 HTTP 请求的方法。我们通常会将它封装成一个通用的方法，方便调用。上面例子中我们根据返回的request.status 是否为200来判断是否成功，但实际上200-400（不包括400）的范围，都可以算是成功的，因为其中还包括使用缓存、重定向等情况。</p>
+<p>​        我们将其封装起来，同时使用 ES6 的Promise的方式，我们可以将其变成一个通过Peomise进行异步回调的请求函数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">function Ajax(&#123; method, url, params, contentType &#125;) &#123;</span><br><span class="line">  const xhr = new XMLHttpRequest();</span><br><span class="line">  const formData = new FormData();</span><br><span class="line">  Object.keys(params).forEach((key) =&gt; &#123;</span><br><span class="line">    formData.append(key, params[key]);</span><br><span class="line">  &#125;);</span><br><span class="line">  return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">      xhr.open(method, url, false);</span><br><span class="line">      xhr.setRequestHeader(&quot;Content-Type&quot;, contentType);</span><br><span class="line">      xhr.onreadystatechange = function () &#123;</span><br><span class="line">        if (xhr.readyState === 4) &#123;</span><br><span class="line">          if (xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 400) &#123;</span><br><span class="line">            // 这里我们使用200-400来判断</span><br><span class="line">            resolve(xhr.responseText);</span><br><span class="line">          &#125; else &#123;</span><br><span class="line">            // 返回请求信息</span><br><span class="line">            reject(xhr);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;;</span><br><span class="line">      xhr.send(formData);</span><br><span class="line">    &#125; catch (err) &#123;</span><br><span class="line">      reject(err);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        通过这样简单的封装，我们就可以以 Promise 的方式来发起 Ajax 请求。</p>
+<p>​        但在具体的项目使用过程中，我们通常还需要考虑更多的问题，比如防抖节流、失败重试、缓存能力、浏览器兼容性、参数处理等。</p>
+<p>​        这就是 HTTP 请求的编程实现。</p>
+</div><div class="tags"></div><div class="post-nav"><a class="pre" href="/2022/03/20/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93/">浏览器渲染</a><a class="next" href="/2022/03/19/HTTP/">HTTP</a></div><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukkaw/disqusjs/dist/disqusjs.css?v=1.0.0"><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/sukkaw/disqusjs/dist/disqus.js?v=1.0.0"></script><script type="text/javascript" id="disqus-count-script">$(function() {
+     var xhr = new XMLHttpRequest();
+     xhr.open('GET', '//disqus.com/next/config.json', true);
+     xhr.timeout = 2500;
+     xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4 && xhr.status === 200) {
+         $('.post-meta .post-comments-count').show();
+         var s = document.createElement('script');
+         s.id = 'dsq-count-scr';
+         s.src = 'https://xueyingwei.disqus.com/count.js';
+         s.async = true;
+         (document.head || document.body).appendChild(s);
+       }
+     };
+     xhr.ontimeout = function () { xhr.abort(); };
+     xhr.send(null);
+   });</script><div class="comments" id="disqus_thread"><script type="text/javascript">// Load comments with DisqusJS
+function loadComments() {
+  window.dsqjs = new DisqusJS({
+    shortname: 'xueyingwei',
+    siteName: 'XUEYINGWEI',
+    identifier: '2022/03/20/网络请求过程/',
+    url: 'http://example.com/2022/03/20/网络请求过程/',
+    title: '网络请求过程',
+    api: '',
+    apikey: '',
+    admin: '',
+    adminLabel: ''
+  });
+}
+// Lazy load {# Credit: https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/comments/disqus.swig #}
+(function () {
+  var offsetTop = document.getElementById('disqus_thread').offsetTop - window.innerHeight;
+  if (offsetTop <= 0) {
+    // Load directly when there's no scrollbar
+    window.addEventListener('load', loadComments, false);
+  } else {
+    var disqusScroll = function () {
+      // offsetTop may changes because of manually resizing browser window or lazy loading images
+      var offsetTop = document.getElementById('disqus_thread').offsetTop - window.innerHeight;
+      var scrollTop = window.scrollY;
+
+      // Pre-load comments a bit? (margin or anything else)
+      if (offsetTop - scrollTop < 60) {
+        window.removeEventListener('scroll', disqusScroll);
+        loadComments();
+      }
+    };
+    window.addEventListener('scroll', disqusScroll);
+  }
+})();
+// Scroll to comments automatically if #comment-xxx anchor specified
+window.addEventListener('load', function () {
+  // I don't know why, it just works.
+  window.setTimeout(function () {
+    if (location.hash.indexOf('#comment-') !== -1) {
+      document.getElementById('disqus_thread').scrollIntoView(true);
+    }
+  }, 100);
+}, false);
+</script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://example.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/VUE/">VUE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BC%98%E5%8C%96%E6%8A%80%E5%B7%A7/">优化技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E5%AE%89%E8%A3%85/">环境部署安装</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%96%91%E9%9A%BE%E7%82%B9/">疑难点</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">网络请求</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/DOM/" style="font-size: 15px;">DOM</a> <a href="/tags/HTTP/" style="font-size: 15px;">HTTP</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 15px;">缓存</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/03/27/%E5%9C%A8%E5%9C%B0%E5%9D%80%E6%A0%8F%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%AA%E5%9C%B0%E5%9D%80%E5%9B%9E%E8%BD%A6%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%80%E4%B9%88/">在地址栏输入一个地址回车会发生什么</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/26/git%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/">git操作命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/22/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/21/js%E6%9C%AA%E5%AE%9A%E4%B9%89%E8%A1%8C%E4%B8%BA/">js未定义行为</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/21/vue3%E8%AF%AD%E6%B3%95%E7%B3%96/">vue3语法糖</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/21/%E5%89%8D%E7%AB%AF%E4%B8%8E%E6%A0%88/">前端与栈</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/20/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/">前端路由模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/20/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93/">浏览器渲染</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/20/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E8%BF%87%E7%A8%8B/">网络请求过程</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/19/HTTP/">HTTP</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//xueyingwei.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://github.com/xueyingwei" title="GitHub" target="_blank">GitHub</a><ul></ul><a href="https://github.com/xueyingwei" title="Mini-Vue3" target="_blank">Mini-Vue3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2022 <a href="/." rel="nofollow">XUEYINGWEI.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
