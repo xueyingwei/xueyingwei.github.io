@@ -1,33 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>环境安装 | XUEYINGWEI</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><meta name="generator" content="Hexo 5.4.1"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">环境安装</h1><a id="logo" href="/.">XUEYINGWEI</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">环境安装</h1><div class="post-meta">2022-03-17<span> | </span><span class="category"><a href="/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E5%AE%89%E8%A3%85/">环境部署安装</a></span></div><a class="disqus-comment-count" data-disqus-identifier="2022/03/17/环境安装部署/" href="/2022/03/17/%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/#disqus_thread"></a><div class="post-content"><span id="more"></span>
-
-<h3 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install xxx</span><br></pre></td></tr></table></figure>
-
-<p>​ 安装项目到项目目录下，不会将模块依赖写入 devDependencies 或 dependencies。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g xxx</span><br></pre></td></tr></table></figure>
-
-<p>​ -g 的意思是将模块安装到全局，具体安装到磁盘哪个位置，要看 npm cinfig prefix 的位置</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -save xxx</span><br></pre></td></tr></table></figure>
-
-<p>​ -save 的意思是将模块安装到项目目下，并在 package 文件的 dependencies 节点写入依赖。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -save-dev xxx</span><br></pre></td></tr></table></figure>
-
-<p>​ -save-dev 的意思是将模块安装到项目目录下，并在 package 文件的 devDependencies 节点写入依赖。</p>
-<hr>
-<h3 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h3><p>​ webpack 配置 package.json 文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack --mode development</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack --mode production</span><br></pre></td></tr></table></figure>
-
-<p>dependencies：运行时的依赖，发布后，即生产环境下还需要用的模块</p>
-<p>devDependencies：开发时的依赖。里面的模块是开发时用的，发布时用不到它。</p>
-<hr>
-<h3 id="VUE"><a href="#VUE" class="headerlink" title="VUE"></a>VUE</h3><p>​ 创建项目</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create</span><br></pre></td></tr></table></figure>
-
-<p>​</p>
-<p>​ 组件使用</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//在main.js新增</span><br><span class="line">import 组件名 from 组件	   //导入组件并赋名</span><br><span class="line">vue.use(组件名)			//注册,调用install方法</span><br><span class="line">const 实例名 = new 组件名.方法()	//实例化</span><br><span class="line">//在main.js的new VUE里加入实例名:实例名</span><br><span class="line">new Vue(&#123;</span><br><span class="line">	实例名:实例名		//ES6可以省略&quot;:实例名&quot;</span><br><span class="line">&#125;).$mount(&#x27;#app&#x27;)</span><br></pre></td></tr></table></figure>
-</div><div class="tags"></div><div class="post-nav"><a class="pre" href="/2022/03/17/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/">深-浅拷贝</a><a class="next" href="/2022/03/17/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">策略模式</a></div><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukkaw/disqusjs/dist/disqusjs.css?v=1.0.0"><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/sukkaw/disqusjs/dist/disqus.js?v=1.0.0"></script><script type="text/javascript" id="disqus-count-script">$(function() {
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>盒模型 | XUEYINGWEI</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><meta name="generator" content="Hexo 5.4.1"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">盒模型</h1><a id="logo" href="/.">XUEYINGWEI</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">盒模型</h1><div class="post-meta">2022-03-07</div><a class="disqus-comment-count" data-disqus-identifier="2022/03/07/盒模型/" href="/2022/03/07/%E7%9B%92%E6%A8%A1%E5%9E%8B/#disqus_thread"></a><div class="post-content"><p>CSS3中的盒模型有以下两种:标准盒模型、IE盒模型 盒模型都是由四个部分组成的,分别是margin、border、padding和content 标准盒模型和IE盒模型的区别在于设置width和height时, 所对应的范围不同 </p>
+<p>1、标准盒模型的width和height属性的范围只包含了content </p>
+<p>2、IE盒模型的width和height属性的范围包含了border、padding和content 可以通过修改元素的box-sizing属性来改变元素的盒模型； </p>
+<p>​        1、box-sizing：content-box表示标准盒模型（默认值） </p>
+<p>​        2、box-sizing：border-box表示IE盒模型（怪异盒模型）</p>
+</div><div class="tags"></div><div class="post-nav"><a class="pre" href="/2022/03/17/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/">防抖和节流</a><a class="next" href="/2022/03/05/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">单例模式</a></div><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukkaw/disqusjs/dist/disqusjs.css?v=1.0.0"><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/sukkaw/disqusjs/dist/disqus.js?v=1.0.0"></script><script type="text/javascript" id="disqus-count-script">$(function() {
      var xhr = new XMLHttpRequest();
      xhr.open('GET', '//disqus.com/next/config.json', true);
      xhr.timeout = 2500;
@@ -48,9 +24,9 @@ function loadComments() {
   window.dsqjs = new DisqusJS({
     shortname: 'xueyingwei',
     siteName: 'XUEYINGWEI',
-    identifier: '2022/03/17/环境安装部署/',
-    url: 'http://example.com/2022/03/17/环境安装部署/',
-    title: '环境安装',
+    identifier: '2022/03/07/盒模型/',
+    url: 'http://example.com/2022/03/07/盒模型/',
+    title: '盒模型',
     api: '',
     apikey: '',
     admin: '',
