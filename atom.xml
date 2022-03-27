@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-03-27T13:36:01.279Z</updated>
+  <updated>2022-03-27T13:40:17.604Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端登录流程</title>
+    <link href="http://example.com/2022/03/27/%E5%89%8D%E7%AB%AF%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/"/>
+    <id>http://example.com/2022/03/27/%E5%89%8D%E7%AB%AF%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/</id>
+    <published>2022-03-27T13:37:41.000Z</published>
+    <updated>2022-03-27T13:40:17.604Z</updated>
+    
+    <content type="html"><![CDATA[<p>初次登录的时候，前端调后调的登录接口，发送用户名和密码，后端收到请求，验证用户名和密码，验证成功，就给前端返回一个token，和一个用户信息的值</p><p>前端拿到token，将token储存到Vuex中，然后从Vuex中把token的值存入浏览器Cookies中。把用户信息存到Vuex然后再存储到LocalStroage中,然后跳转到下一个页面</p><p>之后根据后端接口的要求，只要不登录就不能访问的页面需要在前端每次跳转页面师判断Cookies中是否有token，没有就跳转到登录页，有就跳转到相应的页面</p><p>我们应该再每次发送post/get请求的时候应该加入token，常用方法再项目utils/service.js中添加全局拦截器，将token的值放入请求头中 后端判断请求头中有无token，有token，就拿到token并验证token是否过期，在这里过期会返回无效的token然后有个跳回登录页面重新登录并且清除本地用户的信息</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;初次登录的时候，前端调后调的登录接口，发送用户名和密码，后端收到请求，验证用户名和密码，验证成功，就给前端返回一个token，和一个用户信息的值&lt;/p&gt;
+&lt;p&gt;前端拿到token，将token储存到Vuex中，然后从Vuex中把token的值存入浏览器Cookies中。把用</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>数组去重</title>
@@ -406,30 +427,6 @@
     <summary type="html">&lt;h3 id=&quot;Element-Ui-表单校验&quot;&gt;&lt;a href=&quot;#Element-Ui-表单校验&quot; class=&quot;headerlink&quot; title=&quot;Element Ui 表单校验&quot;&gt;&lt;/a&gt;Element Ui 表单校验&lt;/h3&gt;</summary>
     
     
-    
-    
-  </entry>
-  
-  <entry>
-    <title>js数据类型</title>
-    <link href="http://example.com/2022/03/17/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
-    <id>http://example.com/2022/03/17/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</id>
-    <published>2022-03-17T05:07:10.000Z</published>
-    <updated>2022-03-17T18:01:58.330Z</updated>
-    
-    <content type="html"><![CDATA[<span id="more"></span><p>js 数据类型有 8 种:前 7 种是<strong>基本数据类型</strong>,<span style="color:red;">Object</span>为<strong>引用数据类型</strong>,<strong>object</strong>又分为<strong>array(数组),regexp(正则),date(日期),math(数学),function(函数)</strong></p><h3 id="检测方法"><a href="#检测方法" class="headerlink" title="检测方法"></a>检测方法</h3><ul><li><p><strong>typeof</strong></p><p>​ typeof 无法判断 Null(返回值为 Object),除了 function 判断正确并返回 function,其他引用数据类型皆返回 Object.</p></li><li><p><strong>instanceof</strong></p><p>​ instanceof 无法正确判断基础数据类型</p></li><li><p><strong>object.prototype.toString</strong></p></li></ul><h3 id="转换方法"><a href="#转换方法" class="headerlink" title="转换方法"></a>转换方法</h3><p>强制转换</p><p>-</p><p>隐式装换</p><p>-</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
-
-&lt;p&gt;js 数据类型有 8 种:前 7 种是&lt;strong&gt;基本数据类型&lt;/strong&gt;,&lt;span style=&quot;color:red;&quot;&gt;Object&lt;/span&gt;为&lt;strong&gt;引用数据类型&lt;/strong&gt;,&lt;stron</summary>
-      
-    
-    
-    
-    <category term="JavaScript" scheme="http://example.com/categories/JavaScript/"/>
     
     
   </entry>

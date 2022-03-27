@@ -1,21 +1,8 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>js数据类型 | XUEYINGWEI</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><meta name="generator" content="Hexo 5.4.1"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">js数据类型</h1><a id="logo" href="/.">XUEYINGWEI</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">js数据类型</h1><div class="post-meta">2022-03-17<span> | </span><span class="category"><a href="/categories/JavaScript/">JavaScript</a></span></div><a class="disqus-comment-count" data-disqus-identifier="2022/03/17/js数据类型/" href="/2022/03/17/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/#disqus_thread"></a><div class="post-content"><span id="more"></span>
-
-<p>js 数据类型有 8 种:前 7 种是<strong>基本数据类型</strong>,<span style="color:red;">Object</span>为<strong>引用数据类型</strong>,<strong>object</strong>又分为<strong>array(数组),regexp(正则),date(日期),math(数学),function(函数)</strong></p>
-<h3 id="检测方法"><a href="#检测方法" class="headerlink" title="检测方法"></a>检测方法</h3><ul>
-<li><p><strong>typeof</strong></p>
-<p>​ typeof 无法判断 Null(返回值为 Object),除了 function 判断正确并返回 function,其他引用数据类型皆返回 Object.</p>
-</li>
-<li><p><strong>instanceof</strong></p>
-<p>​ instanceof 无法正确判断基础数据类型</p>
-</li>
-<li><p><strong>object.prototype.toString</strong></p>
-</li>
-</ul>
-<h3 id="转换方法"><a href="#转换方法" class="headerlink" title="转换方法"></a>转换方法</h3><p>强制转换</p>
-<p>-</p>
-<p>隐式装换</p>
-<p>-</p>
-</div><div class="tags"></div><div class="post-nav"><a class="pre" href="/2022/03/17/e-%E8%A1%A8%E5%8D%95%E6%A0%A1%E9%AA%8C/">Element Ui 表单校验</a><a class="next" href="/2022/03/17/js%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">js注意事项</a></div><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukkaw/disqusjs/dist/disqusjs.css?v=1.0.0"><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/sukkaw/disqusjs/dist/disqus.js?v=1.0.0"></script><script type="text/javascript" id="disqus-count-script">$(function() {
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>前端登录流程 | XUEYINGWEI</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><meta name="generator" content="Hexo 5.4.1"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">前端登录流程</h1><a id="logo" href="/.">XUEYINGWEI</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">前端登录流程</h1><div class="post-meta">2022-03-27</div><a class="disqus-comment-count" data-disqus-identifier="2022/03/27/前端登录流程/" href="/2022/03/27/%E5%89%8D%E7%AB%AF%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/#disqus_thread"></a><div class="post-content"><p>初次登录的时候，前端调后调的登录接口，发送用户名和密码，后端收到请求，验证用户名和密码，验证成功，就给前端返回一个token，和一个用户信息的值</p>
+<p>前端拿到token，将token储存到Vuex中，然后从Vuex中把token的值存入浏览器Cookies中。把用户信息存到Vuex然后再存储到LocalStroage中,然后跳转到下一个页面</p>
+<p>之后根据后端接口的要求，只要不登录就不能访问的页面需要在前端每次跳转页面师判断Cookies中是否有token，没有就跳转到登录页，有就跳转到相应的页面</p>
+<p>我们应该再每次发送post/get请求的时候应该加入token，常用方法再项目utils/service.js中添加全局拦截器，将token的值放入请求头中 后端判断请求头中有无token，有token，就拿到token并验证token是否过期，在这里过期会返回无效的token然后有个跳回登录页面重新登录并且清除本地用户的信息</p>
+</div><div class="tags"></div><div class="post-nav"><a class="next" href="/2022/03/27/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/">数组去重</a></div><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sukkaw/disqusjs/dist/disqusjs.css?v=1.0.0"><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/sukkaw/disqusjs/dist/disqus.js?v=1.0.0"></script><script type="text/javascript" id="disqus-count-script">$(function() {
      var xhr = new XMLHttpRequest();
      xhr.open('GET', '//disqus.com/next/config.json', true);
      xhr.timeout = 2500;
@@ -36,9 +23,9 @@ function loadComments() {
   window.dsqjs = new DisqusJS({
     shortname: 'xueyingwei',
     siteName: 'XUEYINGWEI',
-    identifier: '2022/03/17/js数据类型/',
-    url: 'http://example.com/2022/03/17/js数据类型/',
-    title: 'js数据类型',
+    identifier: '2022/03/27/前端登录流程/',
+    url: 'http://example.com/2022/03/27/前端登录流程/',
+    title: '前端登录流程',
     api: '',
     apikey: '',
     admin: '',
