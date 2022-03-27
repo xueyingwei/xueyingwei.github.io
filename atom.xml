@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-03-27T13:20:50.565Z</updated>
+  <updated>2022-03-27T13:36:01.279Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数组去重</title>
+    <link href="http://example.com/2022/03/27/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/"/>
+    <id>http://example.com/2022/03/27/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/</id>
+    <published>2022-03-27T13:33:26.000Z</published>
+    <updated>2022-03-27T13:36:01.279Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//测试数组</span><br><span class="line">let arr = [1,1,&quot;1&quot;,&quot;1&quot;,true,true,&quot;true&quot;,&#123;&#125;,&#123;&#125;,&quot;&#123;&#125;&quot;,null,null,undefined,undefined]</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 方法1</span><br><span class="line">let uniqueOne = Array.from(new Set(arr)) console.log(uniqueOne)</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 方法2</span><br><span class="line">let uniqueTwo = arr =&gt; &#123;</span><br><span class="line">    let map = new Map(); //或者用空对象 let obj = &#123;&#125; 利用对象属性不能重复得特性</span><br><span class="line">    let brr = []</span><br><span class="line">    arr.forEach( item =&gt; &#123;</span><br><span class="line">        if(!map.has(item)) &#123; //如果是对象得话就判断 !obj[item]</span><br><span class="line">            map.set(item,true) //如果是对象得话就obj[item] =true 其他一样</span><br><span class="line">            brr.push(item)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    return brr</span><br><span class="line">&#125;</span><br><span class="line">console.log(uniqueTwo(arr))</span><br><span class="line"></span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//方法3</span><br><span class="line">let uniqueThree = arr =&gt; &#123;</span><br><span class="line">    let brr = []</span><br><span class="line">    arr.forEach(item =&gt; &#123;</span><br><span class="line">        // 使用indexOf 返回数组是否包含某个值 没有就返回-1 有就返回下标</span><br><span class="line">        if(brr.indexOf(item) === -1) brr.push(item)</span><br><span class="line">        // 或者使用includes 返回数组是否包含某个值 没有就返回false 有就返回true</span><br><span class="line">        if(!brr.includes(item)) brr.push(item)</span><br><span class="line">    &#125;)</span><br><span class="line">    return brr</span><br><span class="line">&#125;</span><br><span class="line">console.log(uniqueThree(arr))</span><br><span class="line"></span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//方法4</span><br><span class="line">let uniqueFour = arr =&gt; &#123;                                         </span><br><span class="line">     // 使用 filter 返回符合条件的集合</span><br><span class="line">    let brr = arr.filter((item,index) =&gt; &#123;</span><br><span class="line">        return arr.indexOf(item) === index</span><br><span class="line">    &#125;)</span><br><span class="line">    return brr</span><br><span class="line">&#125;</span><br><span class="line">console.log(uniqueFour(arr))</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>常用布局居中</title>
@@ -410,33 +430,6 @@
     
     
     <category term="JavaScript" scheme="http://example.com/categories/JavaScript/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>js注意事项</title>
-    <link href="http://example.com/2022/03/17/js%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"/>
-    <id>http://example.com/2022/03/17/js%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</id>
-    <published>2022-03-17T05:07:10.000Z</published>
-    <updated>2022-03-17T17:49:31.219Z</updated>
-    
-    <content type="html"><![CDATA[<span id="more"></span><p>对象:</p><p>​ 1.super 必须放在子类 this 的代码前面</p><p>​ 2.ES6 中类是没有变量提升的,类要写在实例的代码前面</p><p>​ 3.类里面的共有属性和方法一定要加 t is 使用</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
-
-&lt;p&gt;对象:&lt;/p&gt;
-&lt;p&gt;​ 1.super 必须放在子类 this 的代码前面&lt;/p&gt;
-&lt;p&gt;​ 2.ES6 中类是没有变量提升的,类要写在实例的代码前面&lt;/p&gt;
-&lt;p&gt;​ 3.类里面的共有属性和方法一定要加 t is 使用&lt;</summary>
-      
-    
-    
-    
-    <category term="疑难点" scheme="http://example.com/categories/%E7%96%91%E9%9A%BE%E7%82%B9/"/>
     
     
   </entry>
