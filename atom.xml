@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-03-27T13:40:17.604Z</updated>
+  <updated>2022-03-27T13:36:01.279Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>前端登录流程</title>
-    <link href="http://example.com/2022/03/27/%E5%89%8D%E7%AB%AF%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/"/>
-    <id>http://example.com/2022/03/27/%E5%89%8D%E7%AB%AF%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/</id>
-    <published>2022-03-27T13:37:41.000Z</published>
-    <updated>2022-03-27T13:40:17.604Z</updated>
-    
-    <content type="html"><![CDATA[<p>初次登录的时候，前端调后调的登录接口，发送用户名和密码，后端收到请求，验证用户名和密码，验证成功，就给前端返回一个token，和一个用户信息的值</p><p>前端拿到token，将token储存到Vuex中，然后从Vuex中把token的值存入浏览器Cookies中。把用户信息存到Vuex然后再存储到LocalStroage中,然后跳转到下一个页面</p><p>之后根据后端接口的要求，只要不登录就不能访问的页面需要在前端每次跳转页面师判断Cookies中是否有token，没有就跳转到登录页，有就跳转到相应的页面</p><p>我们应该再每次发送post/get请求的时候应该加入token，常用方法再项目utils/service.js中添加全局拦截器，将token的值放入请求头中 后端判断请求头中有无token，有token，就拿到token并验证token是否过期，在这里过期会返回无效的token然后有个跳回登录页面重新登录并且清除本地用户的信息</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;初次登录的时候，前端调后调的登录接口，发送用户名和密码，后端收到请求，验证用户名和密码，验证成功，就给前端返回一个token，和一个用户信息的值&lt;/p&gt;
-&lt;p&gt;前端拿到token，将token储存到Vuex中，然后从Vuex中把token的值存入浏览器Cookies中。把用</summary>
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>数组去重</title>
@@ -102,15 +81,12 @@
     <link href="http://example.com/2022/03/26/git%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/"/>
     <id>http://example.com/2022/03/26/git%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/</id>
     <published>2022-03-26T11:28:07.000Z</published>
-    <updated>2022-03-26T11:30:21.290Z</updated>
+    <updated>2022-03-27T13:41:29.713Z</updated>
     
-    <content type="html"><![CDATA[<p>git branch 查看本地所有分支<br>git status 查看当前状态<br>git commit 提交<br>git branch -a 查看所有的分支<br>git branch -r 查看远程所有分支<br>git commit -am “init” 提交并且加注释<br>git remote add origin <a href="mailto:&#103;&#x69;&#x74;&#64;&#49;&#57;&#x32;&#x2e;&#49;&#x36;&#x38;&#x2e;&#x31;&#x2e;&#49;&#49;&#x39;">&#103;&#x69;&#x74;&#64;&#49;&#57;&#x32;&#x2e;&#49;&#x36;&#x38;&#x2e;&#x31;&#x2e;&#49;&#49;&#x39;</a>:ndshow<br>git push origin master 将文件给推到服务器上<br>git remote show origin 显示远程库origin里的资源<br>git push origin master:develop<br>git push origin master:hb-dev 将本地库与服务器上的库进行关联<br>git checkout –track origin/dev 切换到远程dev分支<br>git branch -D master develop 删除本地库develop<br>git checkout -b dev 建立一个新的本地分支dev<br>git merge origin/dev 将分支dev与当前分支进行合并<br>git checkout dev 切换到本地dev分支<br>git remote show 查看远程库<br>git add .<br>git rm 文件名(包括路径) 从git中删除指定文件<br>git clone git://github.com/schacon/grit.git 从服务器上将代码给拉下来<br>git config –list 看所有用户<br>git ls-files 看已经被提交的<br>git rm [file name] 删除一个文件<br>git commit -a 提交当前repos的所有的改变<br>git add [file name] 添加一个文件到git index<br>git commit -v 当你用－v参数的时候可以看commit的差异<br>git commit -m “This is the message describing the commit” 添加commit信息<br>git commit -a -a是代表add，把所有的change加到git index里然后再commit<br>git commit -a -v 一般提交命令<br>git log 看你commit的日志<br>git diff 查看尚未暂存的更新<br>git rm a.a 移除文件(从暂存区和工作区中删除)<br>git rm –cached a.a 移除文件(只从暂存区中删除)<br>git commit -m “remove” 移除文件(从Git中删除)<br>git rm -f a.a 强行移除修改后文件(从暂存区和工作区中删除)<br>git diff –cached 或 $ git diff –staged 查看尚未提交的更新<br>git stash push 将文件给push到一个临时空间中<br>git stash pop 将文件从临时空间pop下来</p>]]></content>
+    <content type="html"><![CDATA[<p>备忘</p><span id="more"></span><p>git branch 查看本地所有分支<br>git status 查看当前状态<br>git commit 提交<br>git branch -a 查看所有的分支<br>git branch -r 查看远程所有分支<br>git commit -am “init” 提交并且加注释<br>git remote add origin <a href="mailto:&#103;&#x69;&#116;&#64;&#49;&#x39;&#50;&#x2e;&#x31;&#54;&#56;&#46;&#x31;&#x2e;&#x31;&#49;&#x39;">&#103;&#x69;&#116;&#64;&#49;&#x39;&#50;&#x2e;&#x31;&#54;&#56;&#46;&#x31;&#x2e;&#x31;&#49;&#x39;</a>:ndshow<br>git push origin master 将文件给推到服务器上<br>git remote show origin 显示远程库origin里的资源<br>git push origin master:develop<br>git push origin master:hb-dev 将本地库与服务器上的库进行关联<br>git checkout –track origin/dev 切换到远程dev分支<br>git branch -D master develop 删除本地库develop<br>git checkout -b dev 建立一个新的本地分支dev<br>git merge origin/dev 将分支dev与当前分支进行合并<br>git checkout dev 切换到本地dev分支<br>git remote show 查看远程库<br>git add .<br>git rm 文件名(包括路径) 从git中删除指定文件<br>git clone git://github.com/schacon/grit.git 从服务器上将代码给拉下来<br>git config –list 看所有用户<br>git ls-files 看已经被提交的<br>git rm [file name] 删除一个文件<br>git commit -a 提交当前repos的所有的改变<br>git add [file name] 添加一个文件到git index<br>git commit -v 当你用－v参数的时候可以看commit的差异<br>git commit -m “This is the message describing the commit” 添加commit信息<br>git commit -a -a是代表add，把所有的change加到git index里然后再commit<br>git commit -a -v 一般提交命令<br>git log 看你commit的日志<br>git diff 查看尚未暂存的更新<br>git rm a.a 移除文件(从暂存区和工作区中删除)<br>git rm –cached a.a 移除文件(只从暂存区中删除)<br>git commit -m “remove” 移除文件(从Git中删除)<br>git rm -f a.a 强行移除修改后文件(从暂存区和工作区中删除)<br>git diff –cached 或 $ git diff –staged 查看尚未提交的更新<br>git stash push 将文件给push到一个临时空间中<br>git stash pop 将文件从临时空间pop下来</p>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;p&gt;git branch 查看本地所有分支&lt;br&gt;git status 查看当前状态&lt;br&gt;git commit 提交&lt;br&gt;git branch -a 查看所有的分支&lt;br&gt;git branch -r 查看远程所有分支&lt;br&gt;git commit -am “init” 提交并</summary>
-      
+    <summary type="html">&lt;p&gt;备忘&lt;/p&gt;</summary>
     
     
     
@@ -122,15 +98,12 @@
     <link href="http://example.com/2022/03/25/Vue%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
     <id>http://example.com/2022/03/25/Vue%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</id>
     <published>2022-03-25T12:08:34.000Z</published>
-    <updated>2022-03-27T13:09:17.782Z</updated>
+    <updated>2022-03-27T13:41:46.648Z</updated>
     
-    <content type="html"><![CDATA[<p>Vue 实例有⼀个完整的⽣命周期，也就是从开始创建、初始化数据、编译模版、挂载Dom -&gt; 渲染、更新 -&gt; 渲染、卸载 等⼀系列过程，称这是Vue的⽣命周期。<br>1、beforeCreate（创建前） ：数据观测和初始化事件还未开始，此时 data 的响应式追踪、event/watcher 都还没有被设置，也就是说不能访问到data、computed、watch、methods上的方法和数据。<br>2、created（创建后） ：实例创建完成，实例上配置的 options 包括 data、computed、watch、methods 等都配置完成，但是此时渲染得节点还未挂载到 DOM，所以不能访问到 <code>$el</code> 属性。<br>3、beforeMount（挂载前） ：在挂载开始之前被调用，相关的render函数首次被调用。实例已完成以下的配置：编译模板，把data里面的数据和模板生成html。此时还没有挂载html到页面上。<br>4、mounted（挂载后） ：在el被新创建的 vm.$el 替换，并挂载到实例上去之后调用。实例已完成以下的配置：用上面编译好的html内容替换el属性指向的DOM对象。完成模板中的html渲染到html 页面中。此过程中进行ajax交互。<br>5、beforeUpdate（更新前） ：响应式数据更新时调用，此时虽然响应式数据更新了，但是对应的真实 DOM 还没有被渲染。<br>6、updated（更新后）：在由于数据更改导致的虚拟DOM重新渲染和打补丁之后调用。此时 DOM 已经根据响应式数据的变化更新了。调用时，组件 DOM已经更新，所以可以执行依赖于DOM的操作。然而在大多数情况下，应该避免在此期间更改状态，因为这可能会导致更新无限循环。该钩子在服务器端渲染期间不被调用。<br>7、beforeDestroy（销毁前） ：实例销毁之前调用。这一步，实例仍然完全可用，<code>this</code> 仍能获取到实例。<br>8、destroyed（销毁后） ：实例销毁后调用，调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。该钩子在服务端渲染期间不被调用。<br>另外还有 <code>keep-alive</code> 独有的生命周期，分别为 <code>activated</code> 和 <code>deactivated</code> 。用 <code>keep-alive</code> 包裹的组件在切换时不会进行销毁，而是缓存到内存中并执行 <code>deactivated</code> 钩子函数，命中缓存渲染后会执行 <code>activated</code> 钩子函数。</p>]]></content>
+    <content type="html"><![CDATA[<p>Vue 实例有⼀个完整的⽣命周期，也就是从开始创建、初始化数据、编译模版、挂载Dom -&gt; 渲染、更新 -&gt; 渲染、卸载 等⼀系列过程，称这是Vue的⽣命周期。</p><span id="more"></span><p>1、beforeCreate（创建前） ：数据观测和初始化事件还未开始，此时 data 的响应式追踪、event/watcher 都还没有被设置，也就是说不能访问到data、computed、watch、methods上的方法和数据。<br>2、created（创建后） ：实例创建完成，实例上配置的 options 包括 data、computed、watch、methods 等都配置完成，但是此时渲染得节点还未挂载到 DOM，所以不能访问到 <code>$el</code> 属性。<br>3、beforeMount（挂载前） ：在挂载开始之前被调用，相关的render函数首次被调用。实例已完成以下的配置：编译模板，把data里面的数据和模板生成html。此时还没有挂载html到页面上。<br>4、mounted（挂载后） ：在el被新创建的 vm.$el 替换，并挂载到实例上去之后调用。实例已完成以下的配置：用上面编译好的html内容替换el属性指向的DOM对象。完成模板中的html渲染到html 页面中。此过程中进行ajax交互。<br>5、beforeUpdate（更新前） ：响应式数据更新时调用，此时虽然响应式数据更新了，但是对应的真实 DOM 还没有被渲染。<br>6、updated（更新后）：在由于数据更改导致的虚拟DOM重新渲染和打补丁之后调用。此时 DOM 已经根据响应式数据的变化更新了。调用时，组件 DOM已经更新，所以可以执行依赖于DOM的操作。然而在大多数情况下，应该避免在此期间更改状态，因为这可能会导致更新无限循环。该钩子在服务器端渲染期间不被调用。<br>7、beforeDestroy（销毁前） ：实例销毁之前调用。这一步，实例仍然完全可用，<code>this</code> 仍能获取到实例。<br>8、destroyed（销毁后） ：实例销毁后调用，调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。该钩子在服务端渲染期间不被调用。<br>另外还有 <code>keep-alive</code> 独有的生命周期，分别为 <code>activated</code> 和 <code>deactivated</code> 。用 <code>keep-alive</code> 包裹的组件在切换时不会进行销毁，而是缓存到内存中并执行 <code>deactivated</code> 钩子函数，命中缓存渲染后会执行 <code>activated</code> 钩子函数。</p>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;p&gt;Vue 实例有⼀个完整的⽣命周期，也就是从开始创建、初始化数据、编译模版、挂载Dom -&amp;gt; 渲染、更新 -&amp;gt; 渲染、卸载 等⼀系列过程，称这是Vue的⽣命周期。&lt;br&gt;1、beforeCreate（创建前） ：数据观测和初始化事件还未开始，此时 data 的响应</summary>
-      
+    <summary type="html">&lt;p&gt;Vue 实例有⼀个完整的⽣命周期，也就是从开始创建、初始化数据、编译模版、挂载Dom -&amp;gt; 渲染、更新 -&amp;gt; 渲染、卸载 等⼀系列过程，称这是Vue的⽣命周期。&lt;/p&gt;</summary>
     
     
     
@@ -289,6 +262,27 @@
     <category term="HTTP" scheme="http://example.com/tags/HTTP/"/>
     
     <category term="缓存" scheme="http://example.com/tags/%E7%BC%93%E5%AD%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端登录流程</title>
+    <link href="http://example.com/2022/03/17/%E5%89%8D%E7%AB%AF%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/"/>
+    <id>http://example.com/2022/03/17/%E5%89%8D%E7%AB%AF%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/</id>
+    <published>2022-03-17T05:37:41.000Z</published>
+    <updated>2022-03-27T13:41:54.477Z</updated>
+    
+    <content type="html"><![CDATA[<p>初次登录的时候，前端调后调的登录接口，发送用户名和密码，后端收到请求，验证用户名和密码，验证成功，就给前端返回一个token，和一个用户信息的值</p><p>前端拿到token，将token储存到Vuex中，然后从Vuex中把token的值存入浏览器Cookies中。把用户信息存到Vuex然后再存储到LocalStroage中,然后跳转到下一个页面</p><p>之后根据后端接口的要求，只要不登录就不能访问的页面需要在前端每次跳转页面师判断Cookies中是否有token，没有就跳转到登录页，有就跳转到相应的页面</p><p>我们应该再每次发送post/get请求的时候应该加入token，常用方法再项目utils/service.js中添加全局拦截器，将token的值放入请求头中 后端判断请求头中有无token，有token，就拿到token并验证token是否过期，在这里过期会返回无效的token然后有个跳回登录页面重新登录并且清除本地用户的信息</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;初次登录的时候，前端调后调的登录接口，发送用户名和密码，后端收到请求，验证用户名和密码，验证成功，就给前端返回一个token，和一个用户信息的值&lt;/p&gt;
+&lt;p&gt;前端拿到token，将token储存到Vuex中，然后从Vuex中把token的值存入浏览器Cookies中。把用</summary>
+      
+    
+    
+    
     
   </entry>
   
